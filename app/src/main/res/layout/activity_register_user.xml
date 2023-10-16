@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterUserActivity">
+
+    <TextView
+        android:id="@+id/weight_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:text="Weight"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/height_label" />
+
+    <TextView
+        android:id="@+id/height_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:text="Height"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sex_label" />
+
+    <TextView
+        android:id="@+id/birthday_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:text="Date of Birth"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/l_name_label" />
+
+    <TextView
+        android:id="@+id/sex_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:text="Sex"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/birthday_label" />
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-500dp"
+        android:text="Set Up Health Details"
+        android:textColor="#E91E63"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/f_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="50dp"
+        android:text="First Name"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_name" />
+
+    <TextView
+        android:id="@+id/l_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:text="Last Name"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/f_name_label" />
+
+    <EditText
+        android:id="@+id/f_name_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="34dp"
+        android:ems="10"
+        android:hint="Enter Your First Name"
+        android:inputType="text|textPersonName"
+        app:layout_constraintStart_toEndOf="@id/birthday_label"
+        app:layout_constraintTop_toBottomOf="@+id/app_name" />
+
+    <EditText
+        android:id="@+id/l_name_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="Enter Your Last Name"
+        android:inputType="text|textPersonName"
+        app:layout_constraintStart_toEndOf="@id/birthday_label"
+        app:layout_constraintTop_toBottomOf="@id/f_name_input" />
+
+    <EditText
+        android:id="@+id/x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="X"
+        android:inputType="text"
+        app:layout_constraintStart_toEndOf="@id/birthday_label"
+        app:layout_constraintTop_toBottomOf="@id/l_name_input" />
+
+    <EditText
+        android:id="@+id/y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="Y"
+        android:inputType="text"
+        app:layout_constraintStart_toEndOf="@id/birthday_label"
+        app:layout_constraintTop_toBottomOf="@id/x" />
+
+    <Button
+        android:id="@+id/save_usr_data_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weight_label" />
+
+    <EditText
+        android:id="@+id/height_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="Enter Your Height"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintStart_toEndOf="@id/birthday_label"
+        app:layout_constraintTop_toBottomOf="@+id/y" />
+
+    <EditText
+        android:id="@+id/weight_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="Enter Your Weight"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintStart_toEndOf="@id/birthday_label"
+        app:layout_constraintTop_toBottomOf="@id/height_input" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
