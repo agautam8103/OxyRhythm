@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="-500dp"
-        android:text="OxyRhythm"
+        android:text="@string/app_name"
         android:textColor="#E91E63"
         android:textSize="34sp"
         android:textStyle="bold"
@@ -21,30 +21,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/new_account_btn"
+        android:id="@+id/new_user_start_btn"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="350dp"
         android:layout_marginEnd="150dp"
-        android:text="Create New Account"
+        android:background="#E91E63"
+        android:text="@string/get_started_btn_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_name" />
-
-    <Button
-        android:id="@+id/login_btn"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="150dp"
-        android:text="Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.351"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/new_account_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

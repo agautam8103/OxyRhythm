@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OxyRhythm</string>
+    <string name="get_started_btn_label">Get Started</string>
 </resources>
