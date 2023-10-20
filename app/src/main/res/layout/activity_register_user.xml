@@ -7,7 +7,7 @@
     tools:context=".RegisterUserActivity">
 
     <EditText
-        android:id="@+id/birth_month_input3"
+        android:id="@+id/birth_year_input"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -156,7 +156,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="9dp"
         android:ems="10"
-        android:hint="Y"
+        android:hint="Use dropdown menu instead"
         android:inputType="text"
         app:layout_constraintStart_toEndOf="@id/birthday_label"
         app:layout_constraintTop_toBottomOf="@id/birth_month_input" />
