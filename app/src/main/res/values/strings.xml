@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">OxyRhythm</string>
     <string name="get_started_btn_label">Get Started</string>
+    <string-array name="Sex_Options"><item>Male</item><item>Female</item></string-array>
 </resources>

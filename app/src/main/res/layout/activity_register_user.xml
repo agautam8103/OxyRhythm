@@ -149,18 +149,6 @@
         app:layout_constraintStart_toEndOf="@id/birth_month_input"
         app:layout_constraintTop_toBottomOf="@id/l_name_input" />
 
-    <EditText
-        android:id="@+id/y"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="9dp"
-        android:ems="10"
-        android:hint="Use dropdown menu instead"
-        android:inputType="text"
-        app:layout_constraintStart_toEndOf="@id/birthday_label"
-        app:layout_constraintTop_toBottomOf="@id/birth_month_input" />
-
     <Button
         android:id="@+id/save_usr_data_btn"
         android:layout_width="wrap_content"
@@ -176,12 +164,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="66dp"
         android:ems="10"
         android:hint="Enter Your Height"
         android:inputType="number|numberDecimal"
         app:layout_constraintStart_toEndOf="@id/birthday_label"
-        app:layout_constraintTop_toBottomOf="@+id/y" />
+        app:layout_constraintTop_toBottomOf="@+id/birth_day_input" />
 
     <EditText
         android:id="@+id/weight_input"
@@ -197,12 +185,12 @@
 
     <Spinner
         android:id="@+id/sex_input"
-        android:layout_width="250dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="Male"
-        android:spinnerMode="dropdown"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="56dp" />
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="22dp"
+        app:layout_constraintStart_toEndOf="@id/birthday_label"
+        app:layout_constraintTop_toBottomOf="@id/birth_month_input" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
