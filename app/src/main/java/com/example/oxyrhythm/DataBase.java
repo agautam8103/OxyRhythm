@@ -21,4 +21,10 @@ public class DataBase {
         editor.putString("Last_Name", l_name);
         editor.apply();
     }
+
+    public void saveSex(String sex) {
+        SharedPreferences.Editor editor = data_saver.edit();
+        editor.putString("Last_Name", sex);
+        editor.apply();
+    }
 }
