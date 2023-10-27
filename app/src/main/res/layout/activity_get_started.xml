@@ -8,13 +8,13 @@
     tools:context=".GetStartedActivity">
 
     <ImageView
-        android:layout_width="411dp"
-        android:layout_height="265dp"
+        android:layout_width="423dp"
+        android:layout_height="493dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="116dp"
         android:src="@drawable/welcomepageimg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,7 +22,7 @@
         android:id="@+id/new_usr_get_started_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="328dp"
+        android:layout_marginTop="276dp"
         android:background="@drawable/buttonstyle"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
@@ -74,7 +74,7 @@
         android:id="@+id/app_name"
         android:layout_width="417dp"
         android:layout_height="75dp"
-        android:layout_marginTop="-500dp"
+        android:layout_marginTop="-520dp"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textColor="@color/white"
