@@ -123,6 +123,7 @@
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/f_name_label"
         app:layout_constraintEnd_toEndOf="@+id/app_name"
+        android:maxLines="1"
         app:layout_constraintTop_toBottomOf="@+id/f_name_label"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -132,6 +133,7 @@
         android:layout_height="wrap_content"
         android:digits="@string/valid_name_input"
         android:ems="10"
+        android:maxLines="1"
         android:hint="@string/enter_your_last_name_hint"
         android:inputType="text|textPersonName"
         android:textColorHint="@color/white"
