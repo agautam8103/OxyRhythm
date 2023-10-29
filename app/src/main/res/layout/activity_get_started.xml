@@ -51,13 +51,14 @@
             android:id="@+id/welcome"
             android:layout_width="wrap_content"
             android:layout_height="79dp"
-            android:layout_marginLeft="65dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
             android:layout_marginTop="15dp"
-            android:fontFamily="@font/varsityteambold"
+            android:textStyle="bold"
             android:gravity="center"
             android:text="Welcome To"
             android:textColor="@color/white"
-            android:textSize="45dp" />
+            android:textSize="50dp" />
 
 
     </LinearLayout>
