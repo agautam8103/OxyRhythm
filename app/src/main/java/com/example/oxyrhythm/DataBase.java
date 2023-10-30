@@ -16,6 +16,10 @@ public class DataBase {
         editor.apply();
     }
 
+    public String getFirstName(){
+        return data_saver.getString("First_Name",null);
+    }
+
     public void saveLastName(String l_name) {
         SharedPreferences.Editor editor = data_saver.edit();
         editor.putString("Last_Name", l_name);
