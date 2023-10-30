@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:background="#102934"
     android:elevation="4dp">
+
     <ImageView
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -19,5 +20,14 @@
     android:layout_marginTop="10dp"
     android:layout_height="match_parent"
     android:layout_width="match_parent"/>
+
+    <HorizontalScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:fillViewport="true"
+    android:scrollbars="horizontal|vertical" />
+
+
 
 </androidx.appcompat.widget.Toolbar>

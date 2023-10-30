@@ -16,4 +16,5 @@
     <string name="height_label">Height (m)</string>
     <string name="weight_label">Weight (kg)</string>
     <string name="year_hint">Year</string>
+    <string name="settings">Settings</string>
 </resources>

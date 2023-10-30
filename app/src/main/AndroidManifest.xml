@@ -19,6 +19,9 @@
             android:name=".GetStartedActivity"
             android:exported="false" />
         <activity
+            android:name=".HeartRate"
+            android:exported="false" />
+        <activity
             android:name=".Dashboard"
             android:exported="false"
             />
