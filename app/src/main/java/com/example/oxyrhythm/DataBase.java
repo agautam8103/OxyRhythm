@@ -16,10 +16,6 @@ public class DataBase {
         editor.apply();
     }
 
-    public String getFirstName(){
-        return data_saver.getString("First_Name",null);
-    }
-
     public void saveLastName(String l_name) {
         SharedPreferences.Editor editor = data_saver.edit();
         editor.putString("Last_Name", l_name);
@@ -28,7 +24,33 @@ public class DataBase {
 
     public void saveSex(String sex) {
         SharedPreferences.Editor editor = data_saver.edit();
-        editor.putString("Last_Name", sex);
+        editor.putString("Sex", sex);
         editor.apply();
     }
+
+    public void saveBirthYear(int birth_year) {
+        SharedPreferences.Editor editor = data_saver.edit();
+        editor.putInt("Birth_Year", birth_year);
+        editor.apply();
+    }
+
+    public void saveWeight(float weight) {
+        SharedPreferences.Editor editor = data_saver.edit();
+        editor.putFloat("Weight", weight);
+        editor.apply();
+    }
+
+    public void saveHeight(float height) {
+        SharedPreferences.Editor editor = data_saver.edit();
+        editor.putFloat("Height", height);
+        editor.apply();
+    }
+
+
+
+
+
+
+
+    public String getFirstName(){return data_saver.getString("First_Name",null);}
 }

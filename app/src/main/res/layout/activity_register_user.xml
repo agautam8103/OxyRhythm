@@ -23,7 +23,6 @@
         android:inputType="number"
         android:maxLength="4"
         android:textColor="#3A3B3C"
-        android:textColorHint="@color/black"
         app:layout_constraintBaseline_toBaselineOf="@+id/birth_month_input"
         app:layout_constraintStart_toStartOf="@+id/l_name_input" />
 
@@ -78,14 +77,14 @@
         android:id="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="238dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginEnd="10dp"
         android:text="@string/set_up_health_details_page_title"
         android:textColor="#3A3B3C"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/f_name_input"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/include4" />
 
     <TextView
         android:id="@+id/f_name_label"
@@ -123,7 +122,6 @@
         android:inputType="text|textPersonName"
         android:maxLines="1"
         android:textColor="#3A3B3C"
-        android:textColorHint="@color/black"
         app:layout_constraintStart_toEndOf="@+id/f_name_label"
         app:layout_constraintTop_toBottomOf="@+id/app_name" />
 
@@ -139,7 +137,6 @@
         android:inputType="text|textPersonName"
         android:maxLines="1"
         android:textColor="#3A3B3C"
-        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/f_name_input"
         app:layout_constraintTop_toBottomOf="@+id/f_name_input" />
 
@@ -155,7 +152,6 @@
         android:inputType="number"
         android:maxLength="2"
         android:textColor="#3A3B3C"
-        android:textColorHint="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/birth_day_input"
         app:layout_constraintStart_toEndOf="@+id/birth_year_input"
         app:layout_constraintTop_toBottomOf="@+id/l_name_input" />
@@ -171,7 +167,7 @@
         android:inputType="number"
         android:maxLength="2"
         android:textColor="#3A3B3C"
-        android:textColorHint="@color/black"
+        
         app:layout_constraintBaseline_toBaselineOf="@+id/birth_month_input"
         app:layout_constraintEnd_toEndOf="@+id/l_name_input"
         app:layout_constraintStart_toEndOf="@+id/sex_input" />
@@ -196,7 +192,6 @@
         android:hint="@string/enter_your_height_hint"
         android:inputType="number|numberDecimal"
         android:textColor="#3A3B3C"
-        android:textColorHint="@color/black"
         app:layout_constraintStart_toStartOf="@+id/sex_input"
         app:layout_constraintTop_toBottomOf="@+id/sex_input" />
 
@@ -209,7 +204,6 @@
         android:hint="@string/enter_your_weight_hint"
         android:inputType="number|numberDecimal"
         android:textColor="#3A3B3C"
-        android:textColorHint="@color/black"
         app:layout_constraintStart_toStartOf="@+id/height_input"
         app:layout_constraintTop_toBottomOf="@+id/height_input" />
 
@@ -218,7 +212,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
-        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/birth_year_input"
         app:layout_constraintStart_toEndOf="@+id/birth_year_input"
         app:layout_constraintTop_toBottomOf="@+id/birth_year_input" />
