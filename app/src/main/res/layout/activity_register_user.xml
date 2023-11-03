@@ -8,7 +8,7 @@
     tools:context=".RegisterUserActivity">
 
     <include
-        android:id="@+id/include4"
+        android:id="@+id/OxyRhythm_Banner"
         layout="@layout/toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -84,7 +84,7 @@
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/f_name_input"
-        app:layout_constraintTop_toTopOf="@id/include4" />
+        app:layout_constraintTop_toTopOf="@id/OxyRhythm_Banner" />
 
     <TextView
         android:id="@+id/f_name_label"
@@ -185,7 +185,7 @@
 
     <EditText
         android:id="@+id/height_input"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
         android:ems="10"
@@ -197,7 +197,7 @@
 
     <EditText
         android:id="@+id/weight_input"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:ems="10"

@@ -7,7 +7,7 @@
     android:background="@color/white">
 
     <include
-        android:id="@+id/include4"
+        android:id="@+id/OxyRhythm_Banner"
         layout="@layout/toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

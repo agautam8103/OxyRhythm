@@ -13,8 +13,8 @@
     <string name="set_up_health_details_page_title">Set Up Health Details</string>
     <string name="sex_label">Sex</string>
     <string name="date_of_birth_label">Date of Birth</string>
-    <string name="height_label">Height (m)</string>
-    <string name="weight_label">Weight (kg)</string>
+    <string name="height_label">Height</string>
+    <string name="weight_label">Weight</string>
     <string name="year_hint">Year</string>
     <string name="settings">Settings</string>
 </resources>
