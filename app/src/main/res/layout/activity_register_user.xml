@@ -17,33 +17,35 @@
         android:id="@+id/birth_year_input"
         android:layout_width="61dp"
         android:layout_height="46dp"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
+        android:nextFocusForward="@+id/height_input"
+        android:imeOptions="actionNext"
         android:hint="@string/year_hint"
         android:inputType="number"
         android:maxLength="4"
-        android:textColor="#3A3B3C"
-        app:layout_constraintBaseline_toBaselineOf="@+id/birth_month_input"
-        app:layout_constraintStart_toStartOf="@+id/l_name_input" />
+        app:layout_constraintStart_toEndOf="@+id/f_name_label"
+        app:layout_constraintTop_toBottomOf="@+id/l_name_input" />
 
     <TextView
         android:id="@+id/weight_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
         android:text="@string/weight_label"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/weight_input"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/height_label" />
 
     <TextView
         android:id="@+id/height_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
         android:text="@string/height_label"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -54,19 +56,20 @@
         android:id="@+id/birthday_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="@string/date_of_birth_label"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/birth_year_label"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/birth_year_input"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l_name_label" />
 
     <TextView
         android:id="@+id/sex_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
         android:text="@string/sex_label"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -74,109 +77,81 @@
         app:layout_constraintTop_toBottomOf="@+id/birthday_label" />
 
     <TextView
-        android:id="@+id/app_name"
+        android:id="@+id/set_up_health_details_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="175dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
         android:text="@string/set_up_health_details_page_title"
         android:textColor="#3A3B3C"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/f_name_input"
-        app:layout_constraintTop_toTopOf="@id/OxyRhythm_Banner" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/OxyRhythm_Banner" />
 
     <TextView
         android:id="@+id/f_name_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
         android:text="First Name"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_name" />
+        app:layout_constraintTop_toBottomOf="@+id/set_up_health_details_label" />
 
     <TextView
         android:id="@+id/l_name_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
         android:text="Last Name"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/l_name_input"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/f_name_label" />
 
     <EditText
         android:id="@+id/f_name_input"
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="11dp"
+        android:nextFocusForward="@+id/l_name_input"
+        android:layout_marginStart="10dp"
+        android:imeOptions="actionNext"
+        android:layout_marginTop="10dp"
         android:digits="@string/valid_name_input"
         android:ems="10"
         android:hint="@string/enter_your_first_name_hint"
         android:inputType="text|textPersonName"
         android:maxLines="1"
-        android:textColor="#3A3B3C"
         app:layout_constraintStart_toEndOf="@+id/f_name_label"
-        app:layout_constraintTop_toBottomOf="@+id/app_name" />
+        app:layout_constraintTop_toBottomOf="@+id/set_up_health_details_label" />
 
     <EditText
         android:id="@+id/l_name_input"
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginStart="10dp"
+        android:nextFocusForward="@+id/birth_year_input"
+        android:imeOptions="actionNext"
+        android:layout_marginTop="10dp"
         android:digits="@string/valid_name_input"
         android:ems="10"
         android:hint="@string/enter_your_last_name_hint"
         android:inputType="text|textPersonName"
         android:maxLines="1"
-        android:textColor="#3A3B3C"
-        app:layout_constraintEnd_toEndOf="@+id/f_name_input"
+        app:layout_constraintStart_toEndOf="@+id/f_name_label"
         app:layout_constraintTop_toBottomOf="@+id/f_name_input" />
-
-    <EditText
-        android:id="@+id/birth_month_input"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="11dp"
-        android:ems="10"
-        android:hint="@string/month_hint"
-        android:inputType="number"
-        android:maxLength="2"
-        android:textColor="#3A3B3C"
-        app:layout_constraintEnd_toStartOf="@+id/birth_day_input"
-        app:layout_constraintStart_toEndOf="@+id/birth_year_input"
-        app:layout_constraintTop_toBottomOf="@+id/l_name_input" />
-
-    <EditText
-        android:id="@+id/birth_day_input"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="@string/day_hint"
-        android:inputType="number"
-        android:maxLength="2"
-        android:textColor="#3A3B3C"
-        
-        app:layout_constraintBaseline_toBaselineOf="@+id/birth_month_input"
-        app:layout_constraintEnd_toEndOf="@+id/l_name_input"
-        app:layout_constraintStart_toEndOf="@+id/sex_input" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/save_usr_data_btn"
         android:layout_width="136dp"
         android:layout_height="36dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="150dp"
         android:backgroundTint="#47a891"
         android:text="@string/next_btn_label"
         app:layout_constraintEnd_toEndOf="parent"
@@ -187,34 +162,55 @@
         android:id="@+id/height_input"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:imeOptions="actionNext"
+        android:nextFocusForward="@+id/weight_input"
         android:ems="10"
         android:hint="@string/enter_your_height_hint"
         android:inputType="number|numberDecimal"
-        android:textColor="#3A3B3C"
-        app:layout_constraintStart_toStartOf="@+id/sex_input"
+        app:layout_constraintStart_toEndOf="@+id/f_name_label"
         app:layout_constraintTop_toBottomOf="@+id/sex_input" />
 
     <EditText
         android:id="@+id/weight_input"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:imeOptions="actionDone"
         android:ems="10"
         android:hint="@string/enter_your_weight_hint"
         android:inputType="number|numberDecimal"
-        android:textColor="#3A3B3C"
-        app:layout_constraintStart_toStartOf="@+id/height_input"
+        app:layout_constraintStart_toEndOf="@+id/f_name_label"
         app:layout_constraintTop_toBottomOf="@+id/height_input" />
 
     <Spinner
         android:id="@+id/sex_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        app:layout_constraintEnd_toEndOf="@+id/birth_year_input"
-        app:layout_constraintStart_toEndOf="@+id/birth_year_input"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@+id/f_name_label"
         app:layout_constraintTop_toBottomOf="@+id/birth_year_input" />
+
+    <Spinner
+        android:id="@+id/height_units"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintStart_toEndOf="@+id/height_input"
+        app:layout_constraintTop_toBottomOf="@+id/sex_input" />
+
+    <Spinner
+        android:id="@+id/weight_units"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintStart_toEndOf="@+id/weight_input"
+        app:layout_constraintTop_toBottomOf="@+id/height_input" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,52 +13,39 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/dashintro"
+        android:id="@+id/hello_OxyUser_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:layout_marginBottom="547dp"
-        android:text="Hello"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
         android:textColor="@color/black"
         android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/OxyRhythm_Banner" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="170dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="195dp"
-        android:layout_marginEnd="99dp"
-        android:layout_marginBottom="501dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
         android:text="Time to check up on your health routine"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.666" />
+        app:layout_constraintTop_toBottomOf="@+id/hello_OxyUser_label" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/checkheartrate"
         android:layout_width="214dp"
         android:layout_height="64dp"
-        android:layout_marginStart="189dp"
-        android:layout_marginTop="637dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="47dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginEnd="50dp"
         android:background="#47a891"
         android:text="Check your Heart Rate"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

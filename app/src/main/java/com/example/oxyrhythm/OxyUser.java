@@ -5,7 +5,7 @@ public class OxyUser {
     private float height, weight;
     int birthYear;
 
-    public OxyUser(String firstName, String lastName, String sex, float height, float weight, int birthYear) {
+    public void SetAttributes(String firstName, String lastName, String sex, float height, float weight, int birthYear) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.sex = sex;
@@ -14,13 +14,9 @@ public class OxyUser {
         this.birthYear = birthYear;
     }
 
-    public OxyUser() {
-        this.firstName = null;
-        this.lastName = null;
-        this.sex = null;
-        this.height = 0;
-        this.weight = 0;
-        this.birthYear = 0;
+    public boolean OxyUserIsEmpty() {
+        if (firstName == null || lastName == null || sex == null || birthYear == 0 || height == 0 || weight == 0) return true;
+        else return false;
     }
 
     public String getFirstName() {return firstName;}

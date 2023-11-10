@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 public class DataBase {
     private final SharedPreferences data_saver;
+    private final OxyUser saved_oxy_user = new OxyUser();
 
     public DataBase(Context context) {
         data_saver = context.getSharedPreferences("Saved_Profile", Context.MODE_PRIVATE);
@@ -45,12 +46,15 @@ public class DataBase {
         editor.putFloat("Height", height);
         editor.apply();
     }
-
-
-
-
-
-
-
-    public String getFirstName(){return data_saver.getString("First_Name",null);}
+    
+    public OxyUser getSavedOxyUser() {
+        saved_oxy_user.SetAttributes(data_saver.getString("First_Name", null),
+                                 data_saver.getString("Last_Name", null),
+                                 data_saver.getString("Sex", null),
+                                 data_saver.getFloat("Height", 0),
+                                 data_saver.getFloat("Weight", 0),
+                                 data_saver.getInt("Birth_Year", 0));
+        
+        return saved_oxy_user;
+    }
 }
