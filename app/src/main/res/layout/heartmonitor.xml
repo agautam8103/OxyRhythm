@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <include
         android:id="@+id/include5"
@@ -12,10 +13,10 @@
     <ScrollView
         android:layout_width="221dp"
         android:layout_height="368dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="259dp"
-        android:layout_marginEnd="46dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="263dp"
+        android:layout_marginEnd="147dp"
+        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,127 +30,36 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
+                android:text="Heart Rate: 74"
+                android:textColor="@color/black"
                 android:textSize="22dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
+                android:text="Heart Rate: 65"
+                android:textColor="@color/black"
                 android:textSize="22dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
+                android:text="Heart Rate: 55"
+                android:textColor="@color/black"
                 android:textSize="22dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
+                android:text="Heart Rate: 88"
+                android:textColor="@color/black"
                 android:textSize="22dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 78"
+                android:text="Heart Rate: 100"
+                android:textColor="@color/black"
                 android:textSize="22dp" />
 
 
