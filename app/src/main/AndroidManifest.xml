@@ -22,6 +22,9 @@
             android:name=".HeartRate"
             android:exported="false" />
         <activity
+            android:name=".HealthMetrics"
+            android:exported="false" />
+        <activity
             android:name=".Dashboard"
             android:exported="true">
             <intent-filter>
