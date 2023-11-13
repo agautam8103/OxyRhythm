@@ -10,6 +10,25 @@
         android:id="@+id/include5"
         layout="@layout/toolbar" />
 
+
+    <TextView
+        android:layout_width="167dp"
+        android:layout_height="50dp"
+        android:text="Heart Rate"
+        android:textColor="#D63838"
+        android:textSize="35dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="163dp" />
+
+    <ImageView
+        android:layout_width="97dp"
+        android:layout_height="65dp"
+        android:src="@drawable/heartrate"
+        tools:layout_editor_absoluteX="217dp"
+        tools:layout_editor_absoluteY="148dp"
+        tools:ignore="MissingConstraints"></ImageView>
+
     <ScrollView
         android:layout_width="221dp"
         android:layout_height="368dp"
