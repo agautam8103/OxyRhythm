@@ -6,14 +6,17 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
 import android.bluetooth.BluetoothGattCallback;
 import android.bluetooth.BluetoothGattCharacteristic;
+import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothProfile;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -44,6 +47,10 @@ public class Dashboard extends AppCompatActivity {
     private BluetoothGatt bluetoothGatt;
     private BluetoothAdapter bluetoothAdapter;
     private boolean bluetoothConnected = false;
+    final String UUID_HEART_RATE = "19B10001-E8F2-537E-4F6C-D104768A1214";
+    public static final String SHARED_PREF = "Sharedpref";
+    public static final String key_data = "heartrate";
+    static final UUID CLIENT_CHARACTERISTIC_CONFIG = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
 
     float[] heartrate = {};
     LinearLayout heartrateWidget, healthmetrics;
@@ -86,10 +93,10 @@ public class Dashboard extends AppCompatActivity {
                 if (ActivityCompat.checkSelfPermission(Dashboard.this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
-                gatt.setCharacteristicNotification(characteristic, true);
+//                gatt.setCharacteristicNotification(characteristic, true);
                 gatt.readCharacteristic(characteristic);
-                gatt.setCharacteristicNotification(characteristicsp02, true);
-                gatt.readCharacteristic(characteristicsp02);
+//                gatt.setCharacteristicNotification(characteristicsp02, true);
+//                gatt.readCharacteristic(characteristicsp02);
             }
         }
 
@@ -111,12 +118,34 @@ public class Dashboard extends AppCompatActivity {
                     });
 
 
+                    Log.d("onChanged", "works in chara read");
                 } else {
                     // Handle the case where the data is empty or not in the expected format.
                 }
             } else {
                 // Handle the case where the read was not successful.
             }
+        }
+
+        @Override
+        public void onCharacteristicChanged(@NonNull BluetoothGatt gatt, @NonNull BluetoothGattCharacteristic characteristic, @NonNull byte[] value) {
+            super.onCharacteristicChanged(gatt, characteristic, value);
+            byte[] dataRec = characteristic.getValue();
+            int heartRate = dataRec[0] & 0xFF; // Modify as needed for your specific data format
+            Log.d("onChanged", "on changed: " + heartRate);
+            SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF,MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+            editor.putInt(key_data, heartRate);
+            editor.apply();
+
+        }
+
+        @Override
+        public void onDescriptorWrite(BluetoothGatt gatt, BluetoothGattDescriptor descriptor, int status) {
+            super.onDescriptorWrite(gatt, descriptor, status);
+            Log.d("onChanged", "The descriptor is successful");
+
         }
     };
 
@@ -299,5 +328,27 @@ public class Dashboard extends AppCompatActivity {
     public void HealthMetrics() {
         Intent i = new Intent(this, HealthMetrics.class);
         startActivity(i);
+    }
+    public void readCharacteristic(BluetoothGattCharacteristic characteristic){
+        if(bluetoothGatt == null){
+            return;
+        }
+        Log.d("onChanged", "read works");
+        bluetoothGatt.readCharacteristic(characteristic);
+    }
+    public void setCharacteristicNotification(BluetoothGattCharacteristic characteristic,boolean enabled) {
+        if (bluetoothGatt == null) {
+            Log.d("onChanged", "BluetoothGatt not initialized");
+            return;
+        }
+        bluetoothGatt.setCharacteristicNotification(characteristic, enabled);
+
+        // This is specific to Heart Rate Measurement.
+        if (UUID_HEART_RATE.equals(characteristic.getUuid())) {
+            BluetoothGattDescriptor descriptor = characteristic.getDescriptor(CLIENT_CHARACTERISTIC_CONFIG);
+            descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+            bluetoothGatt.writeDescriptor(descriptor);
+            Log.d("onChanged", "set Charac notif works");
+        }
     }
 }

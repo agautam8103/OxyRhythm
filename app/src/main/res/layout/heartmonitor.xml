@@ -12,24 +12,30 @@
 
 
     <TextView
+        android:id="@+id/txtView"
         android:layout_width="167dp"
         android:layout_height="50dp"
         android:text="Heart Rate"
         android:textColor="#D63838"
         android:textSize="35dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="163dp" />
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.176"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include5"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="97dp"
         android:layout_height="65dp"
         android:src="@drawable/heartrate"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="217dp"
-        tools:layout_editor_absoluteY="148dp"
-        tools:ignore="MissingConstraints"></ImageView>
+        tools:layout_editor_absoluteY="148dp"></ImageView>
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="221dp"
         android:layout_height="368dp"
         android:layout_marginStart="43dp"
