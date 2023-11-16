@@ -7,6 +7,102 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/blood_oxygen_btn"
+        android:layout_width="290dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#00A9B0"
+        android:text="150 BPM"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="42sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blood_oxygen_level_label" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/body_temperature_btn"
+        android:layout_width="290dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#00A9B0"
+        android:text="150 BPM"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="42sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/body_temperature_label" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/health_metric_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00A9B0"
+        android:text="Health Metrics"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/help_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00A9B0"
+        android:text="Help"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/blood_oxygen_level_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Blood Oxygen Level"
+        android:textAlignment="center"
+        android:textColor="#2196F3"
+        android:textSize="20dp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.22"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/heart_rate_btn" />
+
+    <TextView
+        android:id="@+id/body_temperature_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Body Temperature"
+        android:textAlignment="center"
+        android:textColor="#858B8F"
+        android:textSize="20dp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/blood_oxygen_btn" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/heart_rate_btn"
+        android:layout_width="290dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#00A9B0"
+        android:text="150 BPM"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="42sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heart_rate_label" />
+
     <include
         android:id="@+id/OxyRhythm_Banner"
         layout="@layout/toolbar" />
@@ -15,184 +111,100 @@
         android:id="@+id/hello_OxyUser_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="25dp"
+        android:text="Hello, Amritpal!"
         android:textColor="@color/black"
         android:textSize="45dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.72"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OxyRhythm_Banner"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/OxyRhythm_Banner" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="221dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="173dp"
-        android:layout_marginBottom="516dp"
+        android:id="@+id/dash_mesg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="Time to check up on your health routine"
         android:textAlignment="center"
         android:textColor="#3A3B3C"
         android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.72"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/hello_OxyUser_label" />
 
-    <LinearLayout
-        android:id="@+id/heartRateWid"
-        android:layout_width="296dp"
-        android:layout_height="188dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="167dp"
-        android:clickable="true"
-        android:orientation="vertical"
-        android:background="#FF0000"
-        android:padding="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/heartRateLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:layout_centerHorizontal="true"
-            android:text="Heart Rate"
-            android:textColor="#FF0000"
-            android:textSize="18sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white">
-
-            <TextView
-                android:id="@+id/bpmAvg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:layout_centerHorizontal="true"
-                android:text="87 BPM"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:background="@color/white"
-                android:layout_height="match_parent"
-                android:src="@drawable/heart" />
-
-        </LinearLayout>
-
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/lineChart"
-            android:layout_width="296dp"
-            android:layout_height="136dp"
-            android:background="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/scrubInfoTextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/heartRateLabel" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/healthmetricsclick"
-        android:layout_width="201dp"
-        android:layout_height="124dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginBottom="40dp"
-        android:background="#008000"
-        android:clickable="true"
-        android:focusable="true"
-        android:orientation="vertical"
-        android:padding="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/heartRateWid"
+    <TextView
+        android:id="@+id/heart_rate_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Heart Rate"
+        android:textAlignment="center"
+        android:textColor="#DC3434"
+        android:textSize="20dp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dash_mesg" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:clickable="true"
-            android:text="Health Metrics"
-            android:textColor="@color/black" />
+    <TextView
+        android:id="@+id/Click_to_see_more_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click for more info."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heart_rate_btn" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/click_to_see_more_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click for more info."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/blood_oxygen_btn" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:text="Blood Oxygen Level"
-                android:textColor="#008000" />
-        </LinearLayout>
-
-
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/lineChart2"
-            android:layout_width="201dp"
-            android:layout_height="81dp"
-            android:background="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/scrubInfoTextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/heartRateLabel" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/click_to_see_more_label2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click for more info."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/body_temperature_btn" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="106dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="112dp"
-        android:layout_marginEnd="289dp"
-        android:layout_marginBottom="527dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/profilepic" />
+        android:id="@+id/Heart_Pic"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@+id/heart_rate_label"
+        app:layout_constraintTop_toBottomOf="@+id/dash_mesg"
+        app:srcCompat="@drawable/heartrate" />
 
-    <LinearLayout
-        android:layout_width="130dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="280dp"
-        android:layout_marginTop="621dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="52dp"
-        android:orientation="horizontal"
-        android:padding="2dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:src="@drawable/temp" />
-
-        <TextView
-            android:layout_width="87dp"
-            android:layout_height="64dp"
-            android:text="37C"
-            android:background="@color/white"
-            android:textSize="45dp" />
-
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/Temp_pic"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toEndOf="@+id/body_temperature_label"
+        app:layout_constraintTop_toBottomOf="@+id/blood_oxygen_btn"
+        app:srcCompat="@drawable/temp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

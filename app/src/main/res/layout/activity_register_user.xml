@@ -81,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:text="@string/set_up_health_details_page_title"
         android:textColor="#3A3B3C"
         android:textSize="34sp"
@@ -147,13 +147,15 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/save_usr_data_btn"
-        android:layout_width="136dp"
-        android:layout_height="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
         android:layout_marginTop="45dp"
         android:layout_marginEnd="150dp"
-        android:backgroundTint="#47a891"
+        android:backgroundTint="#00A9B0"
         android:text="@string/next_btn_label"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weight_input" />

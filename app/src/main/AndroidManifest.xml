@@ -21,6 +21,15 @@
         android:theme="@style/Theme.OxyRhythm"
         tools:targetApi="31">
         <activity
+            android:name=".Help"
+            android:exported="false" />
+        <activity
+            android:name=".Temperature"
+            android:exported="false" />
+        <activity
+            android:name=".BloodOxygenLevel"
+            android:exported="false" />
+        <activity
             android:name=".RegisterUserActivity"
             android:exported="false" />
         <activity
@@ -42,4 +51,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

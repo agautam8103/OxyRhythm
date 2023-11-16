@@ -1,9 +1,18 @@
 <resources>
     <string name="app_name">OxyRhythm</string>
     <string name="get_started_btn_label">Sign Up</string>
-    <string-array name="Sex_Options"><item>Male</item> <item>Female</item>></string-array>
-    <string-array name="Height_Units"><item>cm</item> <item>ft</item>></string-array>
-    <string-array name="Weight_Units"><item>kg</item> <item>lbs</item>></string-array>
+    <string-array name="Sex_Options">
+        <item>Male</item>
+        <item>Female</item>>
+    </string-array>
+    <string-array name="Height_Units">
+        <item>cm</item>
+        <item>ft</item>>
+    </string-array>
+    <string-array name="Weight_Units">
+        <item>kg</item>
+        <item>lbs</item>>
+    </string-array>
     <string name="valid_name_input">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="enter_your_first_name_hint">Enter Your First Name</string>
     <string name="enter_your_last_name_hint">Enter Your Last Name</string>
