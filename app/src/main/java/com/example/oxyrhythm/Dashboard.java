@@ -93,7 +93,7 @@ public class Dashboard extends AppCompatActivity {
                 if (ActivityCompat.checkSelfPermission(Dashboard.this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
-//                gatt.setCharacteristicNotification(characteristic, true);
+                gatt.setCharacteristicNotification(characteristic, true);
                 gatt.readCharacteristic(characteristic);
 //                gatt.setCharacteristicNotification(characteristicsp02, true);
 //                gatt.readCharacteristic(characteristicsp02);
