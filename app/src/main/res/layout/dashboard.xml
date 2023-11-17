@@ -64,7 +64,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="Blood Oxygen Level"
         android:textAlignment="center"
         android:textColor="#2196F3"
         android:textSize="20dp"
@@ -79,7 +78,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="Body Temperature"
         android:textAlignment="center"
         android:textColor="#858B8F"
         android:textSize="20dp"
@@ -112,7 +110,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="Hello, Amritpal!"
         android:textColor="@color/black"
         android:textSize="45dp"
         android:textStyle="bold"
@@ -125,7 +122,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="Time to check up on your health routine"
         android:textAlignment="center"
         android:textColor="#3A3B3C"
         android:textSize="18dp"
@@ -138,7 +134,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="Heart Rate"
         android:textAlignment="center"
         android:textColor="#DC3434"
         android:textSize="20dp"
@@ -149,10 +144,9 @@
         app:layout_constraintTop_toBottomOf="@+id/dash_mesg" />
 
     <TextView
-        android:id="@+id/Click_to_see_more_label"
+        android:id="@+id/Click_to_see_more_label1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click for more info."
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="15dp"
@@ -162,10 +156,9 @@
         app:layout_constraintTop_toBottomOf="@+id/heart_rate_btn" />
 
     <TextView
-        android:id="@+id/click_to_see_more_label"
+        android:id="@+id/Click_to_see_more_label2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click for more info."
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="15dp"
@@ -175,10 +168,9 @@
         app:layout_constraintTop_toBottomOf="@id/blood_oxygen_btn" />
 
     <TextView
-        android:id="@+id/click_to_see_more_label2"
+        android:id="@+id/Click_to_see_more_label3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click for more info."
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="15dp"

@@ -126,6 +126,7 @@
         android:hint="@string/enter_your_first_name_hint"
         android:inputType="text|textPersonName"
         android:maxLines="1"
+        android:maxLength="8"
         app:layout_constraintStart_toEndOf="@+id/f_name_label"
         app:layout_constraintTop_toBottomOf="@+id/set_up_health_details_label" />
 
@@ -142,6 +143,7 @@
         android:hint="@string/enter_your_last_name_hint"
         android:inputType="text|textPersonName"
         android:maxLines="1"
+        android:maxLength="12"
         app:layout_constraintStart_toEndOf="@+id/f_name_label"
         app:layout_constraintTop_toBottomOf="@+id/f_name_input" />
 
