@@ -11,79 +11,103 @@
         layout="@layout/toolbar" />
 
 
-    <TextView
-        android:layout_width="167dp"
-        android:layout_height="50dp"
-        android:text="Heart Rate"
-        android:textColor="#D63838"
-        android:textSize="35dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="163dp" />
-
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="97dp"
         android:layout_height="65dp"
+        android:layout_marginStart="238dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="571dp"
         android:src="@drawable/heartrate"
-        tools:layout_editor_absoluteX="217dp"
-        tools:layout_editor_absoluteY="148dp"
-        tools:ignore="MissingConstraints"></ImageView>
-
-    <ScrollView
-        android:layout_width="221dp"
-        android:layout_height="368dp"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="263dp"
-        android:layout_marginEnd="147dp"
-        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"></ImageView>
 
-        <LinearLayout
+    <TextView
+        android:layout_width="167dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="571dp"
+        android:text="Heart Rate"
+        android:textColor="#D63838"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/heartchart"
+        android:layout_width="280dp"
+        android:layout_height="234dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.251"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.38" />
+
+    <LinearLayout
+        android:layout_width="213dp"
+        android:layout_height="250dp"
+        android:background="#01F9C6"
+        android:orientation="vertical"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93">
+
+        <TextView
+            android:id="@+id/avgbpm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="3dp"
+            android:background="@color/white"
+            android:paddingBottom="2dp"
+            android:text="Avg BPM: 87 BPM"
+            android:textColor="@color/black"
+            android:textSize="28dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 74"
-                android:textColor="@color/black"
-                android:textSize="22dp" />
+        <TextView
+            android:id="@+id/restingheartrate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="3dp"
+            android:background="@color/white"
+            android:text="Resting Heart rate: 77 BPM"
+            android:textColor="@color/black"
+            android:textSize="25dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 65"
-                android:textColor="@color/black"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 55"
-                android:textColor="@color/black"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 88"
-                android:textColor="@color/black"
-                android:textSize="22dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate: 100"
-                android:textColor="@color/black"
-                android:textSize="22dp" />
-
-
-        </LinearLayout>
-    </ScrollView>
-
+        <TextView
+            android:id="@+id/healthstatus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="Healthy!"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

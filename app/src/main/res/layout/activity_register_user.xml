@@ -20,6 +20,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:ems="10"
+        android:textColor="@color/black"
         android:nextFocusForward="@+id/height_input"
         android:imeOptions="actionNext"
         android:hint="@string/year_hint"
@@ -123,6 +124,7 @@
         android:layout_marginTop="10dp"
         android:digits="@string/valid_name_input"
         android:ems="10"
+        android:textColor="@color/black"
         android:hint="@string/enter_your_first_name_hint"
         android:inputType="text|textPersonName"
         android:maxLines="1"
@@ -137,6 +139,7 @@
         android:layout_marginStart="10dp"
         android:nextFocusForward="@+id/birth_year_input"
         android:imeOptions="actionNext"
+        android:textColor="@color/black"
         android:layout_marginTop="10dp"
         android:digits="@string/valid_name_input"
         android:ems="10"
@@ -171,6 +174,7 @@
         android:imeOptions="actionNext"
         android:nextFocusForward="@+id/weight_input"
         android:ems="10"
+        android:textColor="@color/black"
         android:hint="@string/enter_your_height_hint"
         android:inputType="number|numberDecimal"
         app:layout_constraintStart_toEndOf="@+id/f_name_label"
@@ -184,6 +188,7 @@
         android:layout_marginTop="20dp"
         android:imeOptions="actionDone"
         android:ems="10"
+        android:textColor="@color/black"
         android:hint="@string/enter_your_weight_hint"
         android:inputType="number|numberDecimal"
         app:layout_constraintStart_toEndOf="@+id/f_name_label"
@@ -191,6 +196,7 @@
 
     <Spinner
         android:id="@+id/sex_input"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
