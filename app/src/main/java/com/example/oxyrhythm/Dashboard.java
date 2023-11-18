@@ -80,8 +80,9 @@ public class Dashboard extends AppCompatActivity {
 
             heart_pic.setVisibility(View.INVISIBLE);
             temp_pic.setVisibility(View.INVISIBLE);
+            blood_oxy_pic.setVisibility(View.INVISIBLE);
 
-            Intent i = new Intent(this, GetStartedActivity.class);
+            Intent i = new Intent(this, RegisterUserActivity.class);
             startActivity(i);
         } else {
             greeting_oxy_user.setText("Hello, " + oxy_user.getFirstName() + "!");
