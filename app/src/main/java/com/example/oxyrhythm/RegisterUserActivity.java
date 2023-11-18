@@ -85,6 +85,35 @@ public class RegisterUserActivity extends AppCompatActivity{
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        OxyUser user = save_oxy_user.getSavedOxyUser();
+
+        if (user.OxyUserIsEmpty()) {
+            EnableEdit(true);
+        }
+
+        else {
+            EnableEdit(false);
+
+            first_name.setText(user.getFirstName());
+            last_name.setText(user.getLastName());
+            birth_year.setText(Integer.toString(user.getBirthYear()));
+            height.setText(Float.toString(user.getHeight()));
+            weight.setText(Float.toString(user.getWeight()));
+        }
+    }
+
+    private void EnableEdit(boolean enable) {
+        first_name.setEnabled(enable);
+        last_name.setEnabled(enable);
+        birth_year.setEnabled(enable);
+        height.setEnabled(enable);
+        weight.setEnabled(enable);
+    }
+
     private void saveOxyUser() {
         if (first_name.getText().length() == 0 || last_name.getText().length() == 0 || birth_year.getText().length() == 0 ||
                 height.getText().length() == 0 || weight.getText().length() == 0) {
@@ -109,9 +138,9 @@ public class RegisterUserActivity extends AppCompatActivity{
             save_oxy_user.saveWeight(Float.parseFloat(weight.getText().toString()));
             save_oxy_user.saveHeight(Float.parseFloat(height.getText().toString()));
             save_oxy_user.saveSex(sex);
-        }
 
-        Intent i = new Intent(this, Dashboard.class);
-        startActivity(i);
+            Intent i = new Intent(this, Dashboard.class);
+            startActivity(i);
+        }
     }
 }

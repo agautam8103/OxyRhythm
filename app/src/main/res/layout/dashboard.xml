@@ -199,4 +199,14 @@
         app:layout_constraintTop_toBottomOf="@+id/blood_oxygen_btn"
         app:srcCompat="@drawable/temp" />
 
+    <ImageView
+        android:id="@+id/blood_oxygen_pic"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toEndOf="@id/blood_oxygen_level_label"
+        app:layout_constraintTop_toBottomOf="@+id/heart_rate_btn"
+        app:srcCompat="@drawable/blood_oxygen" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
