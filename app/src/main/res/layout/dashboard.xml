@@ -13,6 +13,7 @@
         android:layout_height="65dp"
         android:layout_marginStart="35dp"
         android:layout_marginTop="5dp"
+        android:fontFamily="@font/font"
         android:backgroundTint="#00A9B0"
         android:text="150 BPM"
         android:textAlignment="center"
@@ -29,6 +30,7 @@
         android:layout_marginTop="5dp"
         android:backgroundTint="#00A9B0"
         android:text="150 BPM"
+        android:fontFamily="@font/font"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="42sp"
@@ -71,6 +73,7 @@
         android:layout_marginTop="5dp"
         android:backgroundTint="#00A9B0"
         android:text="150 BPM"
+        android:fontFamily="@font/font"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="42sp"
@@ -189,17 +192,26 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:titleMarginStart="145dp"
-        app:title="Dashboard"
-        app:titleTextColor="#ffff" />
+        app:titleTextColor="#ffff"
+        app:title="Oxyrhythm"
+        app:titleTextAppearance="@style/Toolbar.ToolBar">
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+
+        />
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoforsingup" />

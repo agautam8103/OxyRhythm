@@ -4,16 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Help">
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="332dp"
-        android:text="Help"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="167dp" />
+    android:background="@color/white">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -23,18 +14,62 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Help"
-        app:titleMarginStart="90dp"
+        app:title="Oxyrhythm"
+        app:titleMarginStart="100dp"
+        app:titleTextAppearance="@style/Toolbar.ToolBar"
         app:titleTextColor="#ffff" />
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoforsingup" />
+
+
+    <TextView
+        android:id="@+id/help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="52dp"
+        android:gravity="center"
+        android:text="Help Centre"
+        android:textColor="#009688"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"></TextView>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="109dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/help"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help"
+        tools:ignore="MissingConstraints"></ImageView>
+
+    <TextView
+        android:layout_width="242dp"
+        android:layout_height="326dp"
+        android:layout_marginTop="196dp"
+        android:gravity="left"
+        android:text="@string/SettingUp"
+        android:textColor="#009688"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2">
+
+    </TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>

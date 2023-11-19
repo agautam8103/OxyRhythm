@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Toolbar.ToolBar" parent="Base.Theme.OxyRhythm">
+        <item name="android:textSize">35sp</item>
+        <item name="android:text">Oxyrhythm</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:layout_marginLeft">15dp</item>
+    </style>
+</resources>

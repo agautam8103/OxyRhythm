@@ -26,4 +26,23 @@
     <string name="weight_label">Weight</string>
     <string name="year_hint">Year</string>
     <string name="settings">Profile</string>
+    <string name="SettingUp">
+        1. Place you finger into the device. \n\n
+        2.Ensure the device is properly connected to your smart phone bluetooth \n\n
+        3.Click on the notification and set up your profile to begin using our OxyRhythm \n\n
+        4.Once you finish setting up your profile go ahead and start exploring your Health\'s Vital Rhythm Tracker!
+
+
+
+
+
+
+    </string>
+
+
+
+
+
+
+
 </resources>

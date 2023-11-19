@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="0dp"
@@ -14,21 +15,38 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Heart Rate"
-        app:titleMarginStart="90dp"
-        app:titleTextColor="#DC3434" />
+        app:title="Oxyrhythm"
+        app:titleMarginStart="100dp"
+        app:titleTextAppearance="@style/Toolbar.ToolBar"
+        app:titleTextColor="#ffff" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="22dp"
+        android:text="Heart Rate"
+        android:textColor="#DC3434"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/heartchart"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.0"></TextView>
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="56dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoforsingup" />
-
 
     <ImageView
         android:id="@+id/imageView"
@@ -76,7 +94,9 @@
             android:paddingBottom="2dp"
             android:text="Avg BPM: 87 BPM"
             android:textColor="@color/black"
-            android:textSize="28dp" />
+            android:textSize="28dp"
+            android:padding="2dp"/>
+        />
 
         <TextView
             android:id="@+id/restingheartrate"
