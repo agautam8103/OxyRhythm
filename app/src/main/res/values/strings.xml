@@ -25,5 +25,5 @@
     <string name="height_label">Height</string>
     <string name="weight_label">Weight</string>
     <string name="year_hint">Year</string>
-    <string name="settings">Settings</string>
+    <string name="settings">Profile</string>
 </resources>

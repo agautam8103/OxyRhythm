@@ -6,31 +6,37 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
-public class RegisterUserActivity extends AppCompatActivity{
+public class RegisterUserActivity extends AppCompatActivity {
 
     private EditText first_name, last_name, birth_year, height, weight;
-    private String sex;
+    private String sex, height_unit_c, weight_unit_c;
+    Button next;
     private DataBase save_oxy_user;
+    Spinner sex_choice, height_units, weight_units;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(findViewById(R.id.toolbar2));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         save_oxy_user = new DataBase(RegisterUserActivity.this);
+        OxyUser user = save_oxy_user.getSavedOxyUser();
 
-        Button next = findViewById(R.id.save_usr_data_btn);
+        next = findViewById(R.id.save_usr_data_btn);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {saveOxyUser();}
@@ -42,10 +48,11 @@ public class RegisterUserActivity extends AppCompatActivity{
         height = findViewById(R.id.height_input);
         weight = findViewById(R.id.weight_input);
 
-        Spinner sex_choice = findViewById(R.id.sex_input);
+        sex_choice = findViewById(R.id.sex_input);
         ArrayAdapter<CharSequence> sex_adapter = ArrayAdapter.createFromResource(this, R.array.Sex_Options, android.R.layout.simple_spinner_item);
         sex_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sex_choice.setAdapter(sex_adapter);
+        sex_choice.setSelection(getIndexOfSelectedValue(sex_choice, user.getSex()));
         sex_choice.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -56,28 +63,30 @@ public class RegisterUserActivity extends AppCompatActivity{
             public void onNothingSelected(AdapterView<?> parent) {}
         });
 
-        Spinner height_units = findViewById(R.id.height_units);
+        height_units = findViewById(R.id.height_units);
         ArrayAdapter<CharSequence> height_units_adapter = ArrayAdapter.createFromResource(this, R.array.Height_Units, android.R.layout.simple_spinner_item);
         height_units_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         height_units.setAdapter(height_units_adapter);
+        height_units.setSelection(getIndexOfSelectedValue(height_units, user.getHeightUnit()));
         height_units.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                height_unit_c = parent.getItemAtPosition(position).toString();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
         });
 
-        Spinner weight_units = findViewById(R.id.weight_units);
+        weight_units = findViewById(R.id.weight_units);
         ArrayAdapter<CharSequence> weight_units_adapter = ArrayAdapter.createFromResource(this, R.array.Weight_Units, android.R.layout.simple_spinner_item);
         weight_units_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         weight_units.setAdapter(weight_units_adapter);
+        weight_units.setSelection(getIndexOfSelectedValue(weight_units, user.getWeightUnit()));
         weight_units.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                weight_unit_c = parent.getItemAtPosition(position).toString();
             }
 
             @Override
@@ -112,6 +121,12 @@ public class RegisterUserActivity extends AppCompatActivity{
         birth_year.setEnabled(enable);
         height.setEnabled(enable);
         weight.setEnabled(enable);
+        sex_choice.setEnabled(enable);
+        height_units.setEnabled(enable);
+        weight_units.setEnabled(enable);
+
+        if (enable) next.setVisibility(View.VISIBLE);
+        else next.setVisibility(View.INVISIBLE);
     }
 
     private void saveOxyUser() {
@@ -138,9 +153,49 @@ public class RegisterUserActivity extends AppCompatActivity{
             save_oxy_user.saveWeight(Float.parseFloat(weight.getText().toString()));
             save_oxy_user.saveHeight(Float.parseFloat(height.getText().toString()));
             save_oxy_user.saveSex(sex);
+            save_oxy_user.saveHeightUnit(height_unit_c);
+            save_oxy_user.saveWeightUnit(weight_unit_c);
 
             Intent i = new Intent(this, Dashboard.class);
             startActivity(i);
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.edit, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.edit) {
+            EnableEdit(true);
+            return true;
+        }
+
+        else return super.onOptionsItemSelected(item);
+    }
+
+    private int getIndexOfSelectedValue(Spinner spinner, String value) {
+        SpinnerAdapter adapter = spinner.getAdapter();
+
+        if (adapter instanceof ArrayAdapter) {
+            ArrayAdapter<String> arrayAdapter = (ArrayAdapter<String>) adapter;
+
+            for (int i = 0; i < arrayAdapter.getCount(); i++) {
+                if (arrayAdapter.getItem(i).equals(value)) {
+                    return i;
+                }
+            }
+        }
+
+        return -1;
     }
 }

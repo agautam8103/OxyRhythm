@@ -29,6 +29,18 @@ public class DataBase {
         editor.apply();
     }
 
+    public void saveHeightUnit(String hu) {
+        SharedPreferences.Editor editor = data_saver.edit();
+        editor.putString("Height_Unit", hu);
+        editor.apply();
+    }
+
+    public void saveWeightUnit(String wu) {
+        SharedPreferences.Editor editor = data_saver.edit();
+        editor.putString("Weight_Unit", wu);
+        editor.apply();
+    }
+
     public void saveBirthYear(int birth_year) {
         SharedPreferences.Editor editor = data_saver.edit();
         editor.putInt("Birth_Year", birth_year);
@@ -50,10 +62,12 @@ public class DataBase {
     public OxyUser getSavedOxyUser() {
         saved_oxy_user.SetAttributes(data_saver.getString("First_Name", null),
                                  data_saver.getString("Last_Name", null),
-                                 data_saver.getString("Sex", null),
+                                 data_saver.getString("Sex", "Male"),
                                  data_saver.getFloat("Height", 0),
                                  data_saver.getFloat("Weight", 0),
-                                 data_saver.getInt("Birth_Year", 0));
+                                 data_saver.getInt("Birth_Year", 0),
+                                 data_saver.getString("Height_Unit", "cm"),
+                                 data_saver.getString("Weight_Unit", "kg"));
         
         return saved_oxy_user;
     }

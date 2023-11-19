@@ -16,12 +16,15 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
-public class HeartRate extends AppCompatActivity {
+public class HeartRate extends Dashboard {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.heartmonitor);
+
+        setSupportActionBar(findViewById(R.id.toolbar2));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Get the LineChart reference from your layout
         LineChart lineChart = findViewById(R.id.heartchart);
@@ -75,5 +78,11 @@ public class HeartRate extends AppCompatActivity {
 
         // Refresh the chart to display the changes
         lineChart.invalidate();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

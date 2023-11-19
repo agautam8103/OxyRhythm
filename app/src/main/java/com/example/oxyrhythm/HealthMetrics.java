@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class HealthMetrics extends AppCompatActivity {
+public class HealthMetrics extends Dashboard {
 
     private OxyUser oxy_user;
     private DataBase oxy_user_saved_data;
@@ -16,6 +16,9 @@ public class HealthMetrics extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.healthmetrics);
+
+        setSupportActionBar(findViewById(R.id.toolbar2));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         oxy_user_saved_data = new DataBase(HealthMetrics.this);
         height_val = findViewById(R.id.Height_val);
@@ -30,5 +33,11 @@ public class HealthMetrics extends AppCompatActivity {
 
         height_val.setText("Height: " + oxy_user.getHeight());
         weight_val.setText("Weight: " + oxy_user.getWeight());
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

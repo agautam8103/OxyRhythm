@@ -7,12 +7,6 @@
     android:background="@color/white"
     tools:context=".RegisterUserActivity">
 
-    <include
-        android:id="@+id/OxyRhythm_Banner"
-        layout="@layout/toolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/birth_year_input"
         android:layout_width="61dp"
@@ -88,7 +82,7 @@
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OxyRhythm_Banner" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar2" />
 
     <TextView
         android:id="@+id/f_name_label"
@@ -223,6 +217,29 @@
         android:layout_marginTop="35dp"
         app:layout_constraintStart_toEndOf="@+id/weight_input"
         app:layout_constraintTop_toBottomOf="@+id/height_input" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#102934"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Profile"
+        app:titleMarginStart="90dp"
+        app:titleTextColor="#ffff" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logoforsingup" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

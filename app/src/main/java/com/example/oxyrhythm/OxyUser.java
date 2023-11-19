@@ -1,17 +1,19 @@
 package com.example.oxyrhythm;
 
 public class OxyUser {
-    private String firstName, lastName, sex;
+    private String firstName, lastName, sex, height_unit, weight_unit;
     private float height, weight;
     int birthYear;
 
-    public void SetAttributes(String firstName, String lastName, String sex, float height, float weight, int birthYear) {
+    public void SetAttributes(String firstName, String lastName, String sex, float height, float weight, int birthYear, String height_unit, String weight_unit) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.sex = sex;
         this.height = height;
         this.weight = weight;
         this.birthYear = birthYear;
+        this.height_unit = height_unit;
+        this.weight_unit = weight_unit;
     }
 
     public boolean OxyUserIsEmpty() {
@@ -42,4 +44,12 @@ public class OxyUser {
     public int getBirthYear() {return birthYear;}
 
     public void setBirthYear(int birthYear) {this.birthYear = birthYear;}
+
+    public String getHeightUnit() {return height_unit;}
+
+    public void setHeightUnit(String height_unit) {this.height_unit = height_unit;}
+
+    public String getWeightUnit() {return weight_unit;}
+
+    public void setWeightUnit(String weight_unit) {this.weight_unit = weight_unit;}
 }
