@@ -1,138 +1,43 @@
 package com.example.oxyrhythm;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+public class HealthMetrics extends Dashboard {
 
-public class HealthMetrics extends AppCompatActivity {
-
-    TextView MaxHeartRateText;
-    TextView range85;
-    TextView range65;
-    TextView range45;
-    TextView currentWeightText;
-    TextView currentHeightText;
-    TextView BMIText;
-    TextView BMIindication;
-    TextView MaxHeartRateText2;
-    TextView range85_2;
-    TextView range65_2;
-    TextView range45_2;
-    TextView currentWeightText2;
-    TextView currentHeightText2;
-    TextView BMIText2;
-    TextView BMIindication2;
-    FloatingActionButton floatingActionButton;
-
-
-
-
+    private OxyUser oxy_user;
+    private DataBase oxy_user_saved_data;
+    TextView height_val, weight_val;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.healthmetrics);
 
-        OxyUser user = new OxyUser();
-        MaxHeartRateText = findViewById(R.id.MaxHeartRateText);
-        range85 = findViewById(R.id.range85);
-        range65 = findViewById(R.id.range65);
-        range45 = findViewById(R.id.range45);
-        currentWeightText = findViewById(R.id.currentWeightText);
-        currentHeightText = findViewById(R.id.currentHeightText);
-        BMIText = findViewById(R.id.BMIText);
-        BMIindication = findViewById(R.id.BMIindication);
+        setSupportActionBar(findViewById(R.id.toolbar2));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        MaxHeartRateText2 =findViewById(R.id.MaxHeartRateText2);
-        range85_2 = findViewById(R.id.range85_2);
-        range65_2 = findViewById(R.id.range65_2);
-        range45_2 = findViewById(R.id.range45_2);
-        currentWeightText2 = findViewById(R.id.currentWeightText2);
-        currentHeightText2 =findViewById(R.id.currentHeightText2);
-        BMIText2 = findViewById(R.id.BMIText2);
-        BMIindication2 = findViewById(R.id.BMIindication2);
-
-
-
-        //floating inforfmation
-        floatingActionButton = findViewById(R.id.floatingActionButton);
-
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openDialog();
-            }
-        });
-
-
-
-
-        //testing different colours in textView
-
-
-        //calculate and display max heart rate
-        int by = user.getBirthYear();
-        int age = 2023 - by;
-        int max_heartrate = 220 - age;
-        MaxHeartRateText2.setText(max_heartrate + " bpm");
-
-        //calculate and display range 85%
-        int hr_50p = (int) ((max_heartrate)*(0.5));
-        int hr_60p = (int) ((max_heartrate)*(0.6));
-        range85_2.setText( hr_50p + "-" + hr_60p + " bpm");
-
-        //calculate and display range 65%
-        int hr_70p = (int) ((max_heartrate)*(0.6));
-        range65_2.setText( hr_60p + "-" + hr_70p + " bpm");
-
-        //calculate and display range 45%
-        int hr_80p = (int) ((max_heartrate)*(0.6));
-        range45_2.setText(hr_70p + "-" + hr_80p + " bpm");
-
-        //display weight
-        float weightf=user.getWeight();
-        currentWeightText2.setText( weightf + " kg");
-
-
-        //display height
-        float heightf=user.getHeight();
-        currentHeightText2.setText(weightf + " cm");
-
-        //calculate and display BMI
-        float bmikg = user.getWeight()*user.getWeight();
-        float bmim = user.getHeight()/100;
-        float bmi = bmikg/bmim;
-        BMIText2.setText(String.valueOf(bmi));
-
-        //display BMI
-        String bmiInd;
-        if(bmi<18.5){
-            bmiInd = "Underweight";
-        }
-        else if (bmi >= 18.5 && bmi <= 24.9) {
-            bmiInd = "Normal Weight";
-        }
-        else if (bmi >= 25.0 && bmi <= 29.9) {
-            bmiInd = "Overweight";
-        }
-        else {
-            bmiInd = "Obese";
-        }
-        BMIindication2.setText(bmiInd);
+        oxy_user_saved_data = new DataBase(HealthMetrics.this);
+        height_val = findViewById(R.id.Height_val);
+        weight_val = findViewById(R.id.Weight_val);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-    public void openDialog(){
-        HeartrateDialogFragment example = new HeartrateDialogFragment();
-        example.show(getSupportFragmentManager(),"example dialog");
+        oxy_user = oxy_user_saved_data.getSavedOxyUser();
+
+        height_val.setText("Height: " + oxy_user.getHeight());
+        weight_val.setText("Weight: " + oxy_user.getWeight());
     }
 
-    public void openDialog2(){
-        BMIDialogFragment example = new BMIDialogFragment();
-        example.show(getSupportFragmentManager(),"example dialog2");
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }
