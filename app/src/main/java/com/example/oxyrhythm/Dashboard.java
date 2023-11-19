@@ -31,17 +31,17 @@ public class Dashboard extends AppCompatActivity {
         heart_rate_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {heartRate();}});
-        
+
         blood_oxy_BTN = findViewById(R.id.blood_oxygen_btn);
         blood_oxy_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {bloodOxygenLevel();}});
-        
+
         body_temp_BTN = findViewById(R.id.body_temperature_btn);
         body_temp_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {temperature();}});
-        
+
         oxy_user_saved_data = new DataBase(Dashboard.this);
         greeting_oxy_user = findViewById(R.id.hello_OxyUser_label);
         dash_mesg = findViewById(R.id.dash_mesg);

@@ -7,46 +7,271 @@
     android:background="@color/white">
 
     <TextView
-        android:id="@+id/Health_Metric_Title"
-        android:layout_width="150dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="150dp"
+        android:id="@+id/FitnessText"
+        android:layout_width="273dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
         android:text="Health Metrics"
-        android:textColor="@color/black"
-        android:textSize="22dp"
+        android:textColor="#45AEB7"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.789"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardviewHR"
+        android:layout_width="410dp"
+        android:layout_height="166dp"
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar2" />
+        app:layout_constraintTop_toBottomOf="@+id/FitnessText"
+        >
 
-    <TextView
-        android:id="@+id/biometric_data_Label"
+        <TextView
+            android:id="@+id/HeartRateFitness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Heart Rate Info"
+            android:textColor="#102934"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/MaxHeartRateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:text="Your max heart rate: "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/MaxHeartRateText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="165dp"
+            android:layout_marginTop="25dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/range85"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="45dp"
+            android:text="Your heart range for 85% fat burn: "
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/range85_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="255dp"
+            android:layout_marginTop="45dp"
+            android:textSize="14dp"
+            android:textColor="#1EFC47"/>
+
+        <TextView
+            android:id="@+id/range65"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="65dp"
+            android:text="Your heart range for 65% fat burn: "
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/range65_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="255dp"
+            android:layout_marginTop="65dp"
+            android:textSize="14dp"
+            android:textColor="#FA8F02"/>
+
+        <TextView
+            android:id="@+id/range45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="85dp"
+            android:text="Your heart range for 45% fat burn: "
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/range45_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="255dp"
+            android:layout_marginTop="85dp"
+            android:textSize="14dp"
+            android:textColor="#FA0202"/>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardviewBIO"
+        android:layout_width="410dp"
+        android:layout_height="166dp"
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardviewHR">
+
+        <TextView
+            android:id="@+id/biometricsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Biometrics"
+            android:textColor="#102934"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/currentWeightText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:text="Your current weight: "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/currentWeightText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="25dp"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/currentHeightText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="45dp"
+            android:text="Your height: "
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/currentHeightText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="45dp"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/BMIText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="65dp"
+            android:text="Your BMI: "
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/BMIText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="85dp"
+            android:layout_marginTop="65dp"
+            android:textSize="14dp" />
+
+
+
+        <TextView
+            android:id="@+id/BMIindication"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="85dp"
+            android:text="BMI indiacation: "
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/BMIindication2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="85dp"
+            android:textSize="14dp" />
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="60dp"
+        android:layout_height="57dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView7"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="100dp"
-        android:text="Biometric Data"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Health_Metric_Title" />
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.593"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
 
     <TextView
-        android:id="@+id/Height_val"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="100dp"
+        android:id="@+id/textView7"
+        android:layout_width="290dp"
+        android:layout_height="24dp"
+        android:text="More information on heart rate"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Weight_val" />
+        app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
+        app:layout_constraintTop_toBottomOf="@+id/cardviewBIO"
+        app:layout_constraintVertical_bias="0.181" />
 
     <TextView
-        android:id="@+id/Weight_val"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="100dp"
+        android:id="@+id/textView8"
+        android:layout_width="287dp"
+        android:layout_height="24dp"
+        android:text="More information on BMI"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/biometric_data_Label" />
+        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintStart_toEndOf="@+id/floatingActionButton2"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.416" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -66,9 +291,22 @@
         android:id="@+id/logo"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoforsingup" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="96dp"
+        android:layout_height="92dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardviewHR"
+        app:layout_constraintEnd_toStartOf="@+id/FitnessText"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/fitness_image" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
