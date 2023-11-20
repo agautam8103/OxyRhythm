@@ -216,4 +216,36 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoforsingup" />
 
+    <TextView
+        android:id="@+id/livedata"
+        android:layout_width="378dp"
+        android:layout_height="40dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/body_temperature_btn"
+        app:layout_constraintVertical_bias="0.165" />
+
+    <TextView
+        android:id="@+id/livedataspo2"
+        android:layout_width="379dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/livedata"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/livedatabody"
+        android:layout_width="379dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/livedataspo2"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
