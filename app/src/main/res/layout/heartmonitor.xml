@@ -96,7 +96,6 @@
             android:textColor="@color/black"
             android:textSize="28dp"
             android:padding="2dp"/>
-        />
 
         <TextView
             android:id="@+id/restingheartrate"
@@ -111,7 +110,7 @@
             android:textSize="25dp" />
 
         <TextView
-            android:id="@+id/healthstatus"
+            android:id="@+id/hearthealthstatus"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="2dp"
@@ -119,7 +118,7 @@
             android:layout_marginBottom="2dp"
             android:background="@color/white"
             android:gravity="center"
-            android:text="Healthy!"
+            android:text="Normal"
             android:textColor="@color/black"
             android:textSize="40dp"
             android:textStyle="bold" />

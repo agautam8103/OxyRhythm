@@ -52,4 +52,5 @@ public class OxyUser {
     public String getWeightUnit() {return weight_unit;}
 
     public void setWeightUnit(String weight_unit) {this.weight_unit = weight_unit;}
+
 }

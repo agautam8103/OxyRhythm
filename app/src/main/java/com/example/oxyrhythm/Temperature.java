@@ -1,7 +1,5 @@
 package com.example.oxyrhythm;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -27,7 +25,7 @@ public class Temperature extends Dashboard {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Get the LineChart reference from your layout
-        LineChart lineChart = findViewById(R.id.temperaturechart);
+        LineChart lineChart = findViewById(R.id.spO2chart);
 
         // Create a method to set up your LineChart and populate it with data
         setupLineChart(lineChart);
@@ -78,8 +76,6 @@ public class Temperature extends Dashboard {
 
         // Refresh the chart to display the changes
         lineChart.invalidate();
-
-
 
     }
 

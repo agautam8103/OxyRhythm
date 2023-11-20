@@ -24,7 +24,7 @@
 
 
     <TextView
-        android:id="@+id/temp"
+        android:id="@+id/tempTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -32,7 +32,7 @@
         android:textColor="#158CBF"
         android:textSize="25dp"
 
-        app:layout_constraintBottom_toTopOf="@+id/temperaturechart"
+        app:layout_constraintBottom_toTopOf="@+id/spO2chart"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,17 +61,18 @@
         tools:ignore="MissingConstraints"></ImageView>
 
     <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/temperaturechart"
+        android:id="@+id/spO2chart"
         android:layout_width="280dp"
         android:layout_height="234dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <LinearLayout
-        android:layout_width="213dp"
-        android:layout_height="250dp"
+        android:layout_width="208dp"
+        android:layout_height="171dp"
         android:layout_marginTop="24dp"
         android:background="#00A9B0"
         android:orientation="vertical"
@@ -81,12 +82,12 @@
         android:paddingBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/temperaturechart">
+        app:layout_constraintTop_toBottomOf="@+id/spO2chart">
 
         <TextView
-            android:id="@+id/avgspo2level"
-            android:layout_width="197dp"
-            android:layout_height="103dp"
+            android:id="@+id/avgtemp"
+            android:layout_width="190dp"
+            android:layout_height="71dp"
             android:layout_marginStart="2dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="2dp"
@@ -99,18 +100,16 @@
 
         <TextView
             android:id="@+id/restingspo2rate"
-            android:layout_width="196dp"
-            android:layout_height="149dp"
+            android:layout_width="190dp"
+            android:layout_height="85dp"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="2dp"
             android:layout_marginBottom="3dp"
             android:background="@color/white"
+            android:padding="2dp"
             android:text="Resting Body Temperature: 35&#xb0;"
             android:textColor="@color/black"
-            android:textSize="20dp"
-            android:padding="2dp"/>
-        />
-
+            android:textSize="20dp" />
 
     </LinearLayout>
 

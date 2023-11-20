@@ -32,7 +32,7 @@
         android:textColor="#E47583"
         android:textSize="25dp"
 
-        app:layout_constraintBottom_toTopOf="@+id/temperaturechart"
+        app:layout_constraintBottom_toTopOf="@+id/spO2chart"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +61,7 @@
         tools:ignore="MissingConstraints"></ImageView>
 
     <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/temperaturechart"
+        android:id="@+id/spO2chart"
         android:layout_width="280dp"
         android:layout_height="234dp"
         android:layout_marginTop="10dp"
@@ -81,10 +81,10 @@
         android:paddingBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/temperaturechart">
+        app:layout_constraintTop_toBottomOf="@+id/spO2chart">
 
         <TextView
-            android:id="@+id/avgspo2level"
+            android:id="@+id/avgtemp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
@@ -111,7 +111,7 @@
             android:padding="2dp"/>
 
         <TextView
-            android:id="@+id/healthstatus"
+            android:id="@+id/spO2healthstatus"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="2dp"
@@ -119,7 +119,7 @@
             android:layout_marginBottom="2dp"
             android:background="@color/white"
             android:gravity="center"
-            android:text="Healthy!"
+            android:text="Normal"
             android:textColor="@color/black"
             android:textSize="40dp"
             android:textStyle="bold" />

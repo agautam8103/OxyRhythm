@@ -1,8 +1,8 @@
 package com.example.oxyrhythm;
 
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.os.Handler;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
@@ -18,6 +18,19 @@ import java.util.ArrayList;
 
 public class HeartRate extends Dashboard {
 
+    private TextView hearthealthstatus;
+    private HW_Data healthData;
+    private final Handler handler = new Handler();
+    private static final int UPDATE_INTERVAL = 3000; // Update every 7000 milliseconds (3 second)
+
+    private final Runnable updateRunnable = new Runnable() {
+        @Override
+        public void run() {
+            updateHealthStatus();
+            handler.postDelayed(this, UPDATE_INTERVAL); // Schedule the next update
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +39,19 @@ public class HeartRate extends Dashboard {
         setSupportActionBar(findViewById(R.id.toolbar2));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        hearthealthstatus = (TextView) findViewById(R.id.hearthealthstatus);
+
         // Get the LineChart reference from your layout
         LineChart lineChart = findViewById(R.id.heartchart);
 
+        // Initialize with default values
+        healthData = new HW_Data(65, 96, 0);
+
         // Create a method to set up your LineChart and populate it with data
         setupLineChart(lineChart);
+
+        // Start the continuous update loop
+        handler.postDelayed(updateRunnable, UPDATE_INTERVAL);
     }
 
     private void setupLineChart(LineChart lineChart) {
@@ -42,17 +63,13 @@ public class HeartRate extends Dashboard {
         entries.add(new Entry(5, 77));
         entries.add(new Entry(6, 97));
 
-
         LineDataSet dataSet = new LineDataSet(entries, "Heart Rate");
-
 
         dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         dataSet.setCircleColors(ColorTemplate.COLORFUL_COLORS);
         dataSet.setDrawValues(true);
 
-
         LineData data = new LineData(dataSet);
-
 
         lineChart.setData(data);
         lineChart.getDescription().setText("Heart Rate Monitoring");  // Set description label
@@ -80,9 +97,36 @@ public class HeartRate extends Dashboard {
         lineChart.invalidate();
     }
 
+    // Update health status based on heart rate data
+    private void updateHealthStatus() {
+        // Use heart rate value to determine health status
+        String healthStatus;
+        int currentHeartRate = healthData.getHeartRate();
+        if (currentHeartRate < 60) {
+            healthStatus = "Low";
+        }
+        else if(currentHeartRate >= 60 && currentHeartRate < 100) {
+            healthStatus = "Normal";
+        }
+        else {
+            healthStatus = "High";
+        }
+        // Update TextView
+        hearthealthstatus.setText(healthStatus);
+    }
+
     @Override
     public boolean onSupportNavigateUp() {
         finish();
         return true;
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        // Remove the update Runnable when the activity is destroyed to avoid memory leaks
+        handler.removeCallbacks(updateRunnable);
+    }
+
+
 }
