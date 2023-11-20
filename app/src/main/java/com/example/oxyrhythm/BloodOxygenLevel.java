@@ -21,7 +21,7 @@ public class BloodOxygenLevel extends Dashboard {
     private HW_Data healthData;
 
     private final Handler handler = new Handler();
-    private static final int UPDATE_INTERVAL = 3000; // Update every 7000 milliseconds (3 second)
+    private static final int UPDATE_INTERVAL = 3000; // Update every 3000 milliseconds (3 second)
 
     private final Runnable updateRunnable = new Runnable() {
         @Override
