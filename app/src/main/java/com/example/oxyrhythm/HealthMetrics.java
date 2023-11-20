@@ -1,5 +1,6 @@
 package com.example.oxyrhythm;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -38,7 +39,11 @@ public class HealthMetrics extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.healthmetrics);
 
-        OxyUser user = new OxyUser();
+
+        DataBase dataBase = new DataBase(this);
+        OxyUser user = dataBase.getSavedOxyUser();
+
+
         MaxHeartRateText = findViewById(R.id.MaxHeartRateText);
         range85 = findViewById(R.id.range85);
         range65 = findViewById(R.id.range65);
@@ -56,6 +61,8 @@ public class HealthMetrics extends AppCompatActivity {
         currentHeightText2 =findViewById(R.id.currentHeightText2);
         BMIText2 = findViewById(R.id.BMIText2);
         BMIindication2 = findViewById(R.id.BMIindication2);
+
+
 
 
 
@@ -106,11 +113,11 @@ public class HealthMetrics extends AppCompatActivity {
 
         //display height
         float heightf=user.getHeight();
-        currentHeightText2.setText(weightf + " cm");
+        currentHeightText2.setText(heightf + " cm");
 
         //calculate and display BMI
-        float bmikg = user.getWeight()*user.getWeight();
-        float bmim = user.getHeight()/100;
+        float bmikg = weightf;
+        float bmim = (heightf/100)*(heightf/100);
         float bmi = bmikg/bmim;
         BMIText2.setText(String.valueOf(bmi));
 
@@ -141,4 +148,6 @@ public class HealthMetrics extends AppCompatActivity {
         BMIDialogFragment example = new BMIDialogFragment();
         example.show(getSupportFragmentManager(),"example dialog2");
     }
+
+
 }
