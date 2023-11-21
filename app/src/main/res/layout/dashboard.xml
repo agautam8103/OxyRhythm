@@ -195,10 +195,10 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:titleMarginStart="145dp"
-        app:titleTextColor="#ffff"
         app:title="Oxyrhythm"
-        app:titleTextAppearance="@style/Toolbar.ToolBar">
+        app:titleMarginStart="85dp"
+        app:titleTextAppearance="@style/Toolbar.ToolBar"
+        app:titleTextColor="#ffff">
 
     </androidx.appcompat.widget.Toolbar>
 
