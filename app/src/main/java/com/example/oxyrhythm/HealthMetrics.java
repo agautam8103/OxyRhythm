@@ -122,7 +122,11 @@ public class HealthMetrics extends AppCompatActivity {
         BMIText2.setText(String.valueOf(bmi));
 
         //display BMI
+        String unitWeight = user.getWeightUnit();
         String bmiInd;
+        if(unitWeight == "lbs"){
+            //weightf = (weightf/2.205);
+        }
         if(bmi<18.5){
             bmiInd = "Underweight";
         }

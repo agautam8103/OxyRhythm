@@ -33,6 +33,8 @@ import java.util.UUID;
 
 public class Dashboard extends AppCompatActivity {
 
+    public static HW_Database_SQLite database;
+
     private DataBase oxy_user_saved_data;
     TextView greeting_oxy_user, dash_mesg, heart_rate_label, blood_oxygen_level_label, body_temperature_label,
             Click_to_see_more_label1, Click_to_see_more_label2, Click_to_see_more_label3;
@@ -134,46 +136,54 @@ public class Dashboard extends AppCompatActivity {
         public void onCharacteristicChanged(@NonNull BluetoothGatt gatt, @NonNull BluetoothGattCharacteristic characteristic, @NonNull byte[] value) {
             super.onCharacteristicChanged(gatt, characteristic);
             byte[] dataRec = characteristic.getValue();
-//            int heartRate = dataRec[0] & 0xFF; // Modify as needed for your specific data format
-            Log.d("onChanged", "on changed: " + dataRec);
-//            SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF,MODE_PRIVATE);
-//            SharedPreferences.Editor editor = sharedPreferences.edit();
-//
-//            editor.putInt(key_data, heartRate);
-//            editor.apply();
 
             String jello = "";
             String suv;
-            //Here, formatting the byte into an String of Hexadecimal
-            for (int j=0; j<dataRec.length; j++) {
+
+            // Convert the byte array to a hexadecimal string
+            for (int j = 0; j < dataRec.length; j++) {
                 suv = String.format("%02x", dataRec[j]);
                 jello = jello + suv;
-
             }
-            Log.d("onChanged", "characteristic.getValue byte[] to hexa: "+ jello);
 
-            //next up, converting the hexadecimal to ASCII
+            // Convert the hexadecimal string to ASCII
             StringBuilder output = new StringBuilder();
-            for (int i = 0; i < jello.length(); i+=2) {
-                String str = jello.substring(i, i+2);
+            for (int i = 0; i < jello.length(); i += 2) {
+                String str = jello.substring(i, i + 2);
                 int decimal = Integer.parseInt(str, 16);
-                output.append((char)decimal);
+                output.append((char) decimal);
             }
-            Log.d("onChanged", "THE ACTUAL STRING: "+ output);
 
-            String[] anna;
-            anna = output.toString().split(" ");
+            // Split the string and update the UI
+            String[] anna = output.toString().split(" ");
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    livedata.setText("AVG BPM:" + anna[0] );
+                    livedata.setText("AVG BPM:" + anna[0]);
                     livedataspo2.setText(" SPO2:" + anna[1]);
-                    livedatabody.setText( " BODY TMP:" + anna[2]);
+                    livedatabody.setText(" BODY TMP:" + anna[2]);
+
+                    // Initialize the database if needed
+                    if (database == null) {
+                        database = new HW_Database_SQLite(Dashboard.this);
+                    }
+
+                    // Store the heart rate data in SQLite database
+                    int heartRateValue = Integer.parseInt(anna[0]);
+                    String bloodOxygenValue = anna[1];
+                    String bodyTemperatureValue = anna[2];
+
+                    if (database != null) {
+                        database.addHWData(heartRateValue, bloodOxygenValue, bodyTemperatureValue);
+                    } else {
+                        Log.e("Dashboard", "Database is null");
+                    }
                 }
             });
-
-
         }
+
+
+
 
         @Override
         public void onDescriptorWrite(BluetoothGatt gatt, BluetoothGattDescriptor descriptor, int status) {
