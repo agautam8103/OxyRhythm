@@ -106,40 +106,45 @@ public class HealthMetrics extends AppCompatActivity {
         int hr_80p = (int) ((max_heartrate)*(0.6));
         range45_2.setText(hr_70p + "-" + hr_80p + " bpm");
 
-        //display weight
-        float weightf=user.getWeight();
-        currentWeightText2.setText( weightf + " kg");
 
+        // get unit
+        String unitWeight = user.getWeightUnit();
+        String unitHeight = user.getHeightUnit();
 
-        //display height
-        float heightf=user.getHeight();
-        currentHeightText2.setText(heightf + " cm");
+        // display weight
+        float weightf = user.getWeight();
+        if (unitWeight.equals("lbs")) {
+            weightf = (float) (weightf / 2.205);
+        }
+        currentWeightText2.setText(weightf + " " + unitWeight);
 
-        //calculate and display BMI
+        // display height
+        float heightf = user.getHeight();
+        if (unitHeight.equals("ft")) {
+            heightf = (float) (heightf * 30.48);
+        }
+        currentHeightText2.setText(heightf + " " + unitHeight);
+
+        // calculate and display BMI
         float bmikg = weightf;
-        float bmim = (heightf/100)*(heightf/100);
-        float bmi = bmikg/bmim;
+        float bmim = (heightf / 100) * (heightf / 100);
+        float bmi = bmikg / bmim;
         BMIText2.setText(String.valueOf(bmi));
 
-        //display BMI
-        String unitWeight = user.getWeightUnit();
+        // display BMI
         String bmiInd;
-        if(unitWeight == "lbs"){
-            //weightf = (weightf/2.205);
-        }
-        if(bmi<18.5){
+
+        if (bmi < 18.5) {
             bmiInd = "Underweight";
-        }
-        else if (bmi >= 18.5 && bmi <= 24.9) {
+        } else if (bmi >= 18.5 && bmi <= 24.9) {
             bmiInd = "Normal Weight";
-        }
-        else if (bmi >= 25.0 && bmi <= 29.9) {
+        } else if (bmi >= 25.0 && bmi <= 29.9) {
             bmiInd = "Overweight";
-        }
-        else {
+        } else {
             bmiInd = "Obese";
         }
         BMIindication2.setText(bmiInd);
+
     }
 
 
