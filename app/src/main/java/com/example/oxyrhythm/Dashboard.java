@@ -22,6 +22,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -273,6 +275,8 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
 
+        HeartBeatChannel.setAlarm(this);
+
         //edits
         livedata = findViewById(R.id.livedata);
         livedataspo2 = findViewById(R.id.livedataspo2);
@@ -336,6 +340,7 @@ public class Dashboard extends AppCompatActivity {
         blood_oxy_pic = findViewById(R.id.blood_oxygen_pic);
         logo = findViewById(R.id.logo);
         toolbar = findViewById(R.id.toolbar2);
+
     }
 
     @Override
