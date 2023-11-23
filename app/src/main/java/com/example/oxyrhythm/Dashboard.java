@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -24,7 +25,7 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
-
+        HeartBeatChannel.setAlarm(this);
         setSupportActionBar(findViewById(R.id.toolbar2));
 
         heart_rate_BTN = findViewById(R.id.heart_rate_btn);
@@ -56,6 +57,7 @@ public class Dashboard extends AppCompatActivity {
         blood_oxy_pic = findViewById(R.id.blood_oxygen_pic);
         logo = findViewById(R.id.logo);
         toolbar = findViewById(R.id.toolbar2);
+
     }
 
     @Override

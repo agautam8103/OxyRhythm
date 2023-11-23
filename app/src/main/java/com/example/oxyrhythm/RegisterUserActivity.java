@@ -1,10 +1,9 @@
 package com.example.oxyrhythm;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.appcompat.widget.Toolbar;
+import android.Manifest;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,18 +16,38 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 public class RegisterUserActivity extends AppCompatActivity {
+
+    private static final String[] REQUIRED_PERMISSIONS = {
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.POST_NOTIFICATIONS,
+            Manifest.permission.BLUETOOTH,
+            Manifest.permission.BLUETOOTH_ADMIN,
+            Manifest.permission.BLUETOOTH_SCAN,
+            Manifest.permission.BLUETOOTH_CONNECT,
+            // Add other permissions as needed
+    };
+    private static final int PERMISSION_REQUEST_CODE = 123;
 
     private EditText first_name, last_name, birth_year, height, weight;
     private String sex, height_unit_c, weight_unit_c;
-    Button next;
+    private Button next;
     private DataBase save_oxy_user;
-    Spinner sex_choice, height_units, weight_units;
+    private Spinner sex_choice, height_units, weight_units;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
+
+        // Check and request permissions on app launch
+        checkAndRequestPermissions();
 
         setSupportActionBar(findViewById(R.id.toolbar2));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -39,7 +58,9 @@ public class RegisterUserActivity extends AppCompatActivity {
         next = findViewById(R.id.save_usr_data_btn);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {saveOxyUser();}
+            public void onClick(View v) {
+                saveOxyUser();
+            }
         });
 
         first_name = findViewById(R.id.f_name_input);
@@ -60,7 +81,8 @@ public class RegisterUserActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
         height_units = findViewById(R.id.height_units);
@@ -75,7 +97,8 @@ public class RegisterUserActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
         weight_units = findViewById(R.id.weight_units);
@@ -90,43 +113,51 @@ public class RegisterUserActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        OxyUser user = save_oxy_user.getSavedOxyUser();
-
-        if (user.OxyUserIsEmpty()) {
-            EnableEdit(true);
-        }
-
-        else {
-            EnableEdit(false);
-
-            first_name.setText(user.getFirstName());
-            last_name.setText(user.getLastName());
-            birth_year.setText(Integer.toString(user.getBirthYear()));
-            height.setText(Float.toString(user.getHeight()));
-            weight.setText(Float.toString(user.getWeight()));
+    private void checkAndRequestPermissions() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissionsIfNotGranted(REQUIRED_PERMISSIONS, PERMISSION_REQUEST_CODE);
         }
     }
 
-    private void EnableEdit(boolean enable) {
-        first_name.setEnabled(enable);
-        last_name.setEnabled(enable);
-        birth_year.setEnabled(enable);
-        height.setEnabled(enable);
-        weight.setEnabled(enable);
-        sex_choice.setEnabled(enable);
-        height_units.setEnabled(enable);
-        weight_units.setEnabled(enable);
+    private void requestPermissionsIfNotGranted(String[] permissions, int requestCode) {
+        // Check if permissions are already granted
+        boolean allPermissionsGranted = true;
+        for (String permission : permissions) {
+            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+                allPermissionsGranted = false;
+                break;
+            }
+        }
 
-        if (enable) next.setVisibility(View.VISIBLE);
-        else next.setVisibility(View.INVISIBLE);
+        // If any permission is not granted, request them
+        if (!allPermissionsGranted) {
+            ActivityCompat.requestPermissions(this, permissions, requestCode);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            boolean allPermissionsGranted = true;
+
+            for (int result : grantResults) {
+                if (result != PackageManager.PERMISSION_GRANTED) {
+                    allPermissionsGranted = false;
+                    break;
+                }
+            }
+
+            if (allPermissionsGranted) {
+                // All permissions granted, handle initialization logic here
+            } else {
+                Toast.makeText(this, "Permissions denied. App may not function properly.", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void saveOxyUser() {
@@ -134,19 +165,13 @@ public class RegisterUserActivity extends AppCompatActivity {
                 height.getText().length() == 0 || weight.getText().length() == 0) {
             Toast empty_message = Toast.makeText(getApplicationContext(), "No Field May Be Empty", Toast.LENGTH_LONG);
             empty_message.show();
-        }
-
-        else if (Integer.parseInt(birth_year.getText().toString()) < 1900 || Integer.parseInt(birth_year.getText().toString()) > 2023) {
+        } else if (Integer.parseInt(birth_year.getText().toString()) < 1900 || Integer.parseInt(birth_year.getText().toString()) > 2023) {
             Toast invalid_birth_year_message = Toast.makeText(getApplicationContext(), "Enter birth year between 1900 and 2023", Toast.LENGTH_LONG);
             invalid_birth_year_message.show();
-        }
-
-        else if ((2023 - Integer.parseInt(birth_year.getText().toString())) < 18) {
+        } else if ((2023 - Integer.parseInt(birth_year.getText().toString())) < 18) {
             Toast under_age_message = Toast.makeText(getApplicationContext(), "You are under 18 years old. OxyRhythm is not for you", Toast.LENGTH_LONG);
             under_age_message.show();
-        }
-
-        else {
+        } else {
             save_oxy_user.saveFirstName(first_name.getText().toString());
             save_oxy_user.saveLastName(last_name.getText().toString());
             save_oxy_user.saveBirthYear(Integer.parseInt(birth_year.getText().toString()));
@@ -178,9 +203,9 @@ public class RegisterUserActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.edit) {
             EnableEdit(true);
             return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
-
-        else return super.onOptionsItemSelected(item);
     }
 
     private int getIndexOfSelectedValue(Spinner spinner, String value) {
@@ -197,5 +222,22 @@ public class RegisterUserActivity extends AppCompatActivity {
         }
 
         return -1;
+    }
+
+    private void EnableEdit(boolean enable) {
+        first_name.setEnabled(enable);
+        last_name.setEnabled(enable);
+        birth_year.setEnabled(enable);
+        height.setEnabled(enable);
+        weight.setEnabled(enable);
+        sex_choice.setEnabled(enable);
+        height_units.setEnabled(enable);
+        weight_units.setEnabled(enable);
+
+        if (enable) {
+            next.setVisibility(View.VISIBLE);
+        } else {
+            next.setVisibility(View.INVISIBLE);
+        }
     }
 }
