@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="Oxyrhythm"
-        app:titleMarginStart="100dp"
+        app:titleMarginStart="85dp"
         app:titleTextAppearance="@style/Toolbar.ToolBar"
         app:titleTextColor="#ffff" />
 

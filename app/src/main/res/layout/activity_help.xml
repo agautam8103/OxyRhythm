@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="Oxyrhythm"
-        app:titleMarginStart="100dp"
+        app:titleMarginStart="80dp"
         app:titleTextAppearance="@style/Toolbar.ToolBar"
         app:titleTextColor="#ffff" />
 
@@ -26,11 +26,10 @@
         android:id="@+id/logo"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="56dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logoforsingup" />
+        app:srcCompat="@drawable/logoforsingup"
+        tools:layout_editor_absoluteY="4dp" />
 
 
     <TextView

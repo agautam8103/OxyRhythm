@@ -1,7 +1,10 @@
 package com.example.oxyrhythm;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -30,19 +33,16 @@ public class HealthMetrics extends AppCompatActivity {
     FloatingActionButton floatingActionButton;
     FloatingActionButton floatingActionButton2;
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.healthmetrics);
 
+        setSupportActionBar(findViewById(R.id.toolbar2));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         DataBase dataBase = new DataBase(this);
         OxyUser user = dataBase.getSavedOxyUser();
-
 
         MaxHeartRateText = findViewById(R.id.MaxHeartRateText);
         range85 = findViewById(R.id.range85);
@@ -122,7 +122,11 @@ public class HealthMetrics extends AppCompatActivity {
         BMIText2.setText(String.valueOf(bmi));
 
         //display BMI
+        String unitWeight = user.getWeightUnit();
         String bmiInd;
+        if(unitWeight == "lbs"){
+            //weightf = (weightf/2.205);
+        }
         if(bmi<18.5){
             bmiInd = "Underweight";
         }
@@ -149,5 +153,41 @@ public class HealthMetrics extends AppCompatActivity {
         example.show(getSupportFragmentManager(),"example dialog2");
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menufordashboard, menu);
+        getMenuInflater().inflate(R.menu.health_metrics_menu, menu);
+        getMenuInflater().inflate(R.menu.help, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menufordashboard) {
+            Intent i = new Intent(this, RegisterUserActivity.class);
+            startActivity(i);
+            return true;
+        }
+
+        else if (item.getItemId() == R.id.health_metric) {
+            Intent i = new Intent(this, HealthMetrics.class);
+            startActivity(i);
+            return true;
+        }
+
+        else if (item.getItemId() == R.id.help) {
+            Intent i = new Intent(this, Help.class);
+            startActivity(i);
+            return true;
+        }
+
+        else return super.onOptionsItemSelected(item);
+    }
 
 }

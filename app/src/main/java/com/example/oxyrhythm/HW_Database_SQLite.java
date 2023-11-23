@@ -16,9 +16,11 @@ class HW_Database_SQLite extends SQLiteOpenHelper {
 
     private static final String TABLE_NAME = "hw_data";
     private static final String COLUMN_ID = "_id";
-    private static final String COLUMN_HEART_RATE = "heart_rate";
-    private static final String COLUMN_BLOOD_OXYGEN = "blood_oxygen";
-    private static final String COLUMN_TEMPERATURE = "temperature";
+     static final String COLUMN_HEART_RATE = "heart_rate";
+     static final String COLUMN_BLOOD_OXYGEN = "blood_oxygen";
+     static final String COLUMN_TEMPERATURE = "temperature";
+     static final String COLUMN_TIMESTAMP = "timestamp";
+
 
     HW_Database_SQLite(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -29,11 +31,15 @@ class HW_Database_SQLite extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_HEART_RATE + " TEXT, " +
+                COLUMN_HEART_RATE + " INTEGER, " +
                 COLUMN_BLOOD_OXYGEN + " TEXT, " +
-                COLUMN_TEMPERATURE + " TEXT);";
+                COLUMN_TEMPERATURE + " TEXT, " +
+                COLUMN_TIMESTAMP + " DATETIME DEFAULT CURRENT_TIMESTAMP);";
         db.execSQL(query);
+
     }
+
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
@@ -41,47 +47,73 @@ class HW_Database_SQLite extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addHWData(String title, String author, int pages){
+    void addHWData(int heartRate, String bloodOxygen, String temperature) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
-        cv.put(COLUMN_HEART_RATE, title);
-        cv.put(COLUMN_BLOOD_OXYGEN, author);
-        cv.put(COLUMN_TEMPERATURE, pages);
-        long result = db.insert(TABLE_NAME,null, cv);
-        if(result == -1){
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        }else {
+        cv.put(COLUMN_HEART_RATE, heartRate);
+        cv.put(COLUMN_BLOOD_OXYGEN, bloodOxygen);
+        cv.put(COLUMN_TEMPERATURE, temperature);
+
+        long result = db.insert(TABLE_NAME, null, cv);
+
+        if (result == -1) {
+            Toast.makeText(context, "Failed to insert data", Toast.LENGTH_SHORT).show();
+            Log.e("HW_Database_SQLite", "Failed to insert data");
+        } else {
             Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
+            Log.d("HW_Database_SQLite", "Data inserted successfully");
         }
+
+        // Close the database to avoid memory leaks
+        db.close();
     }
 
-    Cursor readAllData(){
+
+    Cursor readAllData() {
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
-        if(db != null){
-            cursor = db.rawQuery(query, null);
+
+        try {
+            if (db != null) {
+                cursor = db.rawQuery(query, null);
+
+                if (cursor != null && cursor.moveToFirst()) {
+                    return cursor; // Return the cursor when data is available and cursor is positioned correctly
+                } else {
+                    Log.d("HW_Database_SQLite", "Cursor is null or empty.");
+                }
+            } else {
+                Log.d("HW_Database_SQLite", "Database is null.");
+            }
+        } catch (Exception e) {
+            Log.e("HW_Database_SQLite", "Error reading data from the database", e);
         }
-        return cursor;
+
+        return null; // Return null if there's an issue
     }
 
-    void updateData(String row_id, String title, String author, String pages){
+
+
+    void updateData(long rowId, int heartRate, String bloodOxygen, String temperature) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_HEART_RATE, title);
-        cv.put(COLUMN_BLOOD_OXYGEN, author);
-        cv.put(COLUMN_TEMPERATURE, pages);
 
-        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
-        if(result == -1){
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        }else {
+        cv.put(COLUMN_HEART_RATE, heartRate);
+        cv.put(COLUMN_BLOOD_OXYGEN, bloodOxygen);
+        cv.put(COLUMN_TEMPERATURE, temperature);
+
+        long result = db.update(TABLE_NAME, cv, COLUMN_ID + "=?", new String[]{String.valueOf(rowId)});
+
+        if (result == -1) {
+            Toast.makeText(context, "Failed to update", Toast.LENGTH_SHORT).show();
+        } else {
             Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
         }
-
     }
+
 
     void deleteOneRow(String row_id){
         SQLiteDatabase db = this.getWritableDatabase();

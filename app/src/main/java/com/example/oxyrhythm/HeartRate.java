@@ -1,7 +1,9 @@
 package com.example.oxyrhythm;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -13,11 +15,13 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import android.database.Cursor;
 
 import java.util.ArrayList;
 
 public class HeartRate extends Dashboard {
-
+    private TextView recentValuesTextView; // Add this line for TextView
+    private HW_Database_SQLite database; // Add this line for database
     private TextView hearthealthstatus;
     private HW_Data healthData;
     private final Handler handler = new Handler();
@@ -52,7 +56,125 @@ public class HeartRate extends Dashboard {
 
         // Start the continuous update loop
         handler.postDelayed(updateRunnable, UPDATE_INTERVAL);
+
+        //recentValuesTextView = findViewById(R.id.recentValuesTextView); // Initialize TextView*******************************
+
+        // Initialize the database
+        database = new HW_Database_SQLite(HeartRate.this);
+
+        // Retrieve and display the last 5 values
+        displayLastFiveValues();
+
+        SQLiteDatabase db = database.getReadableDatabase();
+        if (db != null) {
+            Log.d("HeartRate", "Database opened successfully");
+        } else {
+            Log.e("HeartRate", "Database is null");
+        }
+
+
     }
+    // Inside the displayLastFiveValues method
+
+    private void displayLastFiveValues() {
+        Cursor cursor = database.readAllData();
+
+        if (cursor != null && cursor.moveToLast()) {
+            ArrayList<Entry> entries = new ArrayList<>();
+            int totalHeartRate = 0;
+            int entryCount = 0;
+
+            int heartRateIndex = cursor.getColumnIndexOrThrow(HW_Database_SQLite.COLUMN_HEART_RATE);
+
+            int index = 0;
+            do {
+                int heartRate = cursor.getInt(heartRateIndex);
+                totalHeartRate += heartRate;
+                entries.add(new Entry(index++, heartRate));
+                entryCount++;
+            } while (cursor.moveToPrevious() && entries.size() < 5); // Limit to 5 entries
+
+            // Calculate average BPM
+            int averageBPM = (entryCount > 0) ? totalHeartRate / entryCount : 0;
+
+            // Update the LineChart with the entries
+            updateLineChart(entries);
+
+            // Update the avgbpm TextView with the calculated average BPM
+            TextView avgBpmTextView = findViewById(R.id.avgbpm);
+            avgBpmTextView.setText("Avg BPM: " + averageBPM + " BPM");
+
+            // Calculate and update resting heart rate
+            int restingHeartRate = calculateRestingHeartRate(entries);
+            TextView restingHeartRateTextView = findViewById(R.id.restingheartrate);
+            restingHeartRateTextView.setText("Resting Heart rate: " + restingHeartRate + " BPM");
+        } else {
+            recentValuesTextView.setText("No data available");
+        }
+
+        // Close the cursor to avoid memory leaks
+        if (cursor != null) {
+            cursor.close();
+        }
+    }
+
+    // New method to calculate resting heart rate
+    private int calculateRestingHeartRate(ArrayList<Entry> entries) {
+        // For example, you can use the last entry as the resting heart rate
+        if (!entries.isEmpty()) {
+            Entry lastEntry = entries.get(entries.size() - 1);
+            return (int) lastEntry.getY();
+        }
+        return 0;
+    }
+
+
+    // New method to update LineChart with dynamic entries
+    private void updateLineChart(ArrayList<Entry> entries) {
+        LineChart lineChart = findViewById(R.id.heartchart);
+
+        LineDataSet dataSet = new LineDataSet(entries, "Heart Rate");
+        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        dataSet.setCircleColors(ColorTemplate.COLORFUL_COLORS);
+        dataSet.setDrawValues(true);
+
+        LineData data = new LineData(dataSet);
+
+        lineChart.setData(data);
+        lineChart.getDescription().setText("Heart Rate Monitoring");
+        lineChart.animateY(2000);
+
+        XAxis xAxis = lineChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setValueFormatter(new IndexAxisValueFormatter(getTimeLabels(entries.size())));
+        xAxis.setDrawGridLines(false);
+
+        YAxis leftAxis = lineChart.getAxisLeft();
+        leftAxis.setAxisMinimum(0f);
+        leftAxis.setLabelCount(6, true);
+        leftAxis.setDrawGridLines(false);
+
+        YAxis rightAxis = lineChart.getAxisRight();
+        rightAxis.setEnabled(false);
+
+        Legend legend = lineChart.getLegend();
+        legend.setForm(Legend.LegendForm.LINE);
+
+        lineChart.invalidate();
+    }
+
+    // New method to generate time labels based on entry count
+    private String[] getTimeLabels(int entryCount) {
+        String[] labels = new String[entryCount];
+        for (int i = 0; i < entryCount; i++) {
+            labels[i] = "Time " + (i + 1);
+        }
+        return labels;
+    }
+
+
+
+
 
     private void setupLineChart(LineChart lineChart) {
         ArrayList<Entry> entries = new ArrayList<>();
@@ -98,22 +220,30 @@ public class HeartRate extends Dashboard {
     }
 
     // Update health status based on heart rate data
+    // Update health status based on heart rate data
     private void updateHealthStatus() {
         // Use heart rate value to determine health status
-        String healthStatus;
         int currentHeartRate = healthData.getHeartRate();
-        if (currentHeartRate < 60) {
-            healthStatus = "Low";
-        }
-        else if(currentHeartRate >= 60 && currentHeartRate < 100) {
-            healthStatus = "Normal";
-        }
-        else {
-            healthStatus = "High";
-        }
+        int averageBPM = healthData.getAverageBPM();
+
         // Update TextView
+        hearthealthstatus.setText("Current Heart Rate: " + currentHeartRate + " BPM\n"
+                + "Average BPM: " + averageBPM + " BPM");
+
+        // Determine health status based on heart rate values
+        String healthStatus;
+        if (currentHeartRate < 60) {
+            healthStatus = "Below Normal Range";
+        } else if (currentHeartRate >= 60 && currentHeartRate < 100) {
+            healthStatus = "Normal";
+        } else {
+            healthStatus = "Elevated";
+        }
+
+        // Update TextView with health status
         hearthealthstatus.setText(healthStatus);
     }
+
 
     @Override
     public boolean onSupportNavigateUp() {
