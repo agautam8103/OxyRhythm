@@ -1,3 +1,5 @@
+//Class to store hardware generated data using SQLite
+
 package com.example.oxyrhythm;
 
 import android.content.ContentValues;
@@ -129,8 +131,4 @@ class HW_Database_SQLite extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME);
     }
-
-
-
-
 }
