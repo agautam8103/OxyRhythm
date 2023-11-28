@@ -1,3 +1,5 @@
+//Class to store data on local Android device using SharedPreferences
+
 package com.example.oxyrhythm;
 
 import android.content.Context;
