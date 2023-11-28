@@ -22,15 +22,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
-
 import java.util.UUID;
 
 public class Dashboard extends AppCompatActivity {
@@ -184,9 +180,6 @@ public class Dashboard extends AppCompatActivity {
             });
         }
 
-
-
-
         @Override
         public void onDescriptorWrite(BluetoothGatt gatt, BluetoothGattDescriptor descriptor, int status) {
             super.onDescriptorWrite(gatt, descriptor, status);
@@ -251,7 +244,6 @@ public class Dashboard extends AppCompatActivity {
         heartrate = newHeartrateArray;
     }
 
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -297,17 +289,8 @@ public class Dashboard extends AppCompatActivity {
             requestLocationPermission();
         }
 
-
-
-
-
-
-
-
         oxy_user_saved_data = new DataBase(Dashboard.this);
         greeting_oxy_user = findViewById(R.id.hello_OxyUser_label);
-
-
 
         setSupportActionBar(findViewById(R.id.toolbar2));
 
@@ -349,7 +332,7 @@ public class Dashboard extends AppCompatActivity {
 
         OxyUser oxy_user = oxy_user_saved_data.getSavedOxyUser();
 
-        if (oxy_user.OxyUserIsEmpty()) {
+        if (oxy_user.OxyUserIsEmpty()) { //Go to register user page if there's no user data
             heart_rate_BTN.setVisibility(View.INVISIBLE);
             blood_oxy_BTN.setVisibility(View.INVISIBLE);
             body_temp_BTN.setVisibility(View.INVISIBLE);
@@ -361,7 +344,7 @@ public class Dashboard extends AppCompatActivity {
 
             Intent i = new Intent(this, GetStartedActivity.class);
             startActivity(i);
-        } else {
+        } else { //Set everything visible on this page if a user account exists
             greeting_oxy_user.setText("Hello, " + oxy_user.getFirstName() + "!");
             dash_mesg.setText("Time to check up on your health routine");
             heart_rate_label.setText("Heart Rate");
@@ -382,7 +365,7 @@ public class Dashboard extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed() { //Stay in this page if back phone button is pressed at any page
         Intent intent = new Intent(this, Dashboard.class);
         startActivity(intent);
         finish();
