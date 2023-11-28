@@ -95,7 +95,7 @@ public class HeartRate extends Dashboard {
             } while (cursor.moveToPrevious() && entries.size() < 5); // Limit to 5 entries
 
             // Calculate average BPM
-            int averageBPM = (entryCount > 0) ? totalHeartRate / entryCount : 0;
+            int averageBPM = (entryCount >= 0) ? totalHeartRate / entryCount : 0;
 
             // Update the LineChart with the entries
             updateLineChart(entries);
@@ -109,7 +109,7 @@ public class HeartRate extends Dashboard {
             TextView restingHeartRateTextView = findViewById(R.id.restingheartrate);
             restingHeartRateTextView.setText("Resting Heart rate: " + restingHeartRate + " BPM");
         } else {
-            recentValuesTextView.setText("No data available");
+            hearthealthstatus.setText("No data available");
         }
 
         // Close the cursor to avoid memory leaks
@@ -178,12 +178,12 @@ public class HeartRate extends Dashboard {
 
     private void setupLineChart(LineChart lineChart) {
         ArrayList<Entry> entries = new ArrayList<>();
-        entries.add(new Entry(1, 60));
-        entries.add(new Entry(2, 65));
-        entries.add(new Entry(3, 70));
-        entries.add(new Entry(4, 87));
-        entries.add(new Entry(5, 77));
-        entries.add(new Entry(6, 97));
+        entries.add(new Entry(1, 0));
+        entries.add(new Entry(2, 0));
+        entries.add(new Entry(3, 0));
+        entries.add(new Entry(4, 0));
+        entries.add(new Entry(5, 0));
+        entries.add(new Entry(6, 0));
 
         LineDataSet dataSet = new LineDataSet(entries, "Heart Rate");
 
@@ -200,7 +200,7 @@ public class HeartRate extends Dashboard {
         // Customize the X and Y axes
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setValueFormatter(new IndexAxisValueFormatter(new String[]{"Time 1", "Time 2", "Time"}));
+        xAxis.setValueFormatter(new IndexAxisValueFormatter(new String[]{"Time 1", "Time 2", "Time 3"}));
         xAxis.setDrawGridLines(false); // Disable vertical grid lines
 
         YAxis leftAxis = lineChart.getAxisLeft();

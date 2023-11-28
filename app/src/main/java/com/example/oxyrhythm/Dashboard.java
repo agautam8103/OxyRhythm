@@ -161,9 +161,9 @@ public class Dashboard extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    livedata.setText("AVG BPM:" + anna[0]);
-                    livedataspo2.setText(" SPO2:" + anna[1]);
-                    livedatabody.setText(" BODY TMP:" + anna[2]);
+                    livedata.setText("BPM: " + anna[0]);
+                    livedataspo2.setText("SPO2: " + anna[1] + "%");
+                    livedatabody.setText("TMP: " + anna[2]+"°C");
 
                     // Initialize the database if needed
                     if (database == null) {

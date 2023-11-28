@@ -32,7 +32,7 @@
         android:textColor="#158CBF"
         android:textSize="25dp"
 
-        app:layout_constraintBottom_toTopOf="@+id/spO2chart"
+        app:layout_constraintBottom_toTopOf="@+id/tempchart"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +61,7 @@
         tools:ignore="MissingConstraints"></ImageView>
 
     <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/spO2chart"
+        android:id="@+id/tempchart"
         android:layout_width="280dp"
         android:layout_height="234dp"
         android:layout_marginTop="8dp"
@@ -71,6 +71,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="208dp"
         android:layout_height="171dp"
         android:layout_marginTop="24dp"
@@ -82,7 +83,7 @@
         android:paddingBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spO2chart">
+        app:layout_constraintTop_toBottomOf="@+id/tempchart">
 
         <TextView
             android:id="@+id/avgtemp"
@@ -94,12 +95,12 @@
             android:layout_marginBottom="3dp"
             android:background="@color/white"
             android:paddingBottom="2dp"
-            android:text="Avg Body Temperature: 35&#xb0;"
+            android:text="Avg Body Temperature: NO DATA"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/restingspo2rate"
+            android:id="@+id/restingbody"
             android:layout_width="190dp"
             android:layout_height="85dp"
             android:layout_marginStart="2dp"
@@ -107,7 +108,7 @@
             android:layout_marginBottom="3dp"
             android:background="@color/white"
             android:padding="2dp"
-            android:text="Resting Body Temperature: 35&#xb0;"
+            android:text="Resting Body Temperature: NO DATA"
             android:textColor="@color/black"
             android:textSize="20dp" />
 

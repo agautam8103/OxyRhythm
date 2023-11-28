@@ -129,4 +129,8 @@ class HW_Database_SQLite extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME);
     }
+
+
+
+
 }

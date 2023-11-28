@@ -113,17 +113,19 @@ public class HealthMetrics extends AppCompatActivity {
 
         // display weight
         float weightf = user.getWeight();
+        currentWeightText2.setText(weightf + " " + unitWeight);
         if (unitWeight.equals("lbs")) {
             weightf = (float) (weightf / 2.205);
         }
-        currentWeightText2.setText(weightf + " " + unitWeight);
+
 
         // display height
         float heightf = user.getHeight();
+        currentHeightText2.setText(heightf + " " + unitHeight);
         if (unitHeight.equals("ft")) {
             heightf = (float) (heightf * 30.48);
         }
-        currentHeightText2.setText(heightf + " " + unitHeight);
+
 
         // calculate and display BMI
         float bmikg = weightf;

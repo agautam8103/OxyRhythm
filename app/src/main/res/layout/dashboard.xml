@@ -10,78 +10,77 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/blood_oxygen_btn"
         android:layout_width="350dp"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_button"
-        android:backgroundTint="#00A9B0"
         android:fontFamily="@font/font"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="42sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/blood_oxygen_level_label" />
+        app:layout_constraintTop_toBottomOf="@+id/heart_rate_btn" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/body_temperature_btn"
         android:layout_width="350dp"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_button"
-        android:backgroundTint="#00A9B0"
         android:fontFamily="@font/font"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="42sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/body_temperature_label" />
+        app:layout_constraintTop_toBottomOf="@+id/blood_oxygen_btn" />
 
     <TextView
         android:id="@+id/blood_oxygen_level_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:elevation="10dp"
         android:textAlignment="center"
-        android:textColor="#2196F3"
+        android:textColor="#FFFFFF"
         android:textSize="20dp"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.22"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/heart_rate_btn" />
+        app:layout_constraintStart_toEndOf="@+id/blood_oxygen_pic"
+        app:layout_constraintTop_toTopOf="@+id/blood_oxygen_btn" />
 
     <TextView
         android:id="@+id/body_temperature_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:elevation="10dp"
         android:textAlignment="center"
-        android:textColor="#858B8F"
+        android:textColor="#FFFFFF"
         android:textSize="20dp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.21"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/blood_oxygen_btn" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/Temp_pic"
+        app:layout_constraintTop_toTopOf="@+id/body_temperature_btn" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/heart_rate_btn"
         android:layout_width="350dp"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_button"
-        android:backgroundTint="#00A9B0"
+
         android:fontFamily="@font/font"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="42sp"
+
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heart_rate_label"
-
-
-        />
+        app:layout_constraintTop_toBottomOf="@+id/dash_mesg" />
 
     <TextView
         android:id="@+id/hello_OxyUser_label"
@@ -111,15 +110,15 @@
         android:id="@+id/heart_rate_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:elevation="10dp"
         android:textAlignment="center"
-        android:textColor="#DC3434"
+        android:textColor="#FFFFFF"
         android:textSize="20dp"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dash_mesg" />
+        app:layout_constraintStart_toEndOf="@+id/Heart_Pic"
+        app:layout_constraintTop_toTopOf="@+id/heart_rate_btn" />
 
     <TextView
         android:id="@+id/Click_to_see_more_label1"
@@ -161,30 +160,33 @@
         android:id="@+id/Heart_Pic"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintStart_toEndOf="@+id/heart_rate_label"
-        app:layout_constraintTop_toBottomOf="@+id/dash_mesg"
-        app:srcCompat="@drawable/heartrate" />
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="292dp"
+        app:layout_constraintEnd_toEndOf="@+id/heart_rate_btn"
+        app:layout_constraintTop_toTopOf="@+id/heart_rate_btn"
+        app:srcCompat="@drawable/heartrate"
+        android:elevation="10dp"/>
 
     <ImageView
         android:id="@+id/Temp_pic"
         android:layout_width="33dp"
         android:layout_height="33dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintStart_toEndOf="@+id/body_temperature_label"
-        app:layout_constraintTop_toBottomOf="@+id/blood_oxygen_btn"
-        app:srcCompat="@drawable/temp" />
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="292dp"
+        app:layout_constraintEnd_toEndOf="@+id/body_temperature_btn"
+        app:layout_constraintTop_toTopOf="@+id/body_temperature_btn"
+        app:srcCompat="@drawable/temp"
+        android:elevation="10dp"/>
 
     <ImageView
         android:id="@+id/blood_oxygen_pic"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintStart_toEndOf="@id/blood_oxygen_level_label"
-        app:layout_constraintTop_toBottomOf="@+id/heart_rate_btn"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="292dp"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/blood_oxygen_btn"
+        app:layout_constraintTop_toTopOf="@+id/blood_oxygen_btn"
         app:srcCompat="@drawable/blood_oxygen" />
 
     <androidx.appcompat.widget.Toolbar
@@ -221,54 +223,51 @@
 
     <TextView
         android:id="@+id/livedata"
-        android:layout_width="189dp"
+        android:layout_width="200dp"
         android:layout_height="70dp"
         android:elevation="10dp"
         android:gravity="center"
-
         android:textColor="#FFFFFF"
-        android:textSize="35dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/heart_rate_btn"
         app:layout_constraintEnd_toEndOf="@+id/heart_rate_btn"
         app:layout_constraintHorizontal_bias="0.826"
         app:layout_constraintStart_toStartOf="@+id/heart_rate_btn"
         app:layout_constraintTop_toTopOf="@+id/heart_rate_btn"
-        app:layout_constraintVertical_bias="0.433" />
+        app:layout_constraintVertical_bias="0.816" />
 
     <TextView
         android:id="@+id/livedataspo2"
-        android:layout_width="189dp"
+        android:layout_width="200dp"
         android:layout_height="70dp"
         android:elevation="10dp"
         android:gravity="center"
-
         android:textColor="#FFFFFF"
-        android:textSize="35dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/blood_oxygen_btn"
         app:layout_constraintEnd_toEndOf="@+id/blood_oxygen_btn"
         app:layout_constraintHorizontal_bias="0.826"
         app:layout_constraintStart_toStartOf="@+id/blood_oxygen_btn"
         app:layout_constraintTop_toTopOf="@+id/blood_oxygen_btn"
-        app:layout_constraintVertical_bias="0.533" />
+        app:layout_constraintVertical_bias="0.85" />
 
     <TextView
         android:id="@+id/livedatabody"
-        android:layout_width="189dp"
+        android:layout_width="200dp"
         android:layout_height="70dp"
         android:elevation="10dp"
         android:gravity="center"
-
         android:textColor="#FFFFFF"
-        android:textSize="35dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/body_temperature_btn"
         app:layout_constraintEnd_toEndOf="@+id/body_temperature_btn"
         app:layout_constraintHorizontal_bias="0.826"
         app:layout_constraintStart_toStartOf="@+id/body_temperature_btn"
-        app:layout_constraintTop_toTopOf="@+id/body_temperature_btn" />
-
+        app:layout_constraintTop_toTopOf="@+id/body_temperature_btn"
+        app:layout_constraintVertical_bias="0.85" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

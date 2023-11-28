@@ -47,7 +47,7 @@ public class BloodOxygenLevel extends Dashboard {
         setupLineChart(lineChart);
 
         // Initialize with default values
-        healthData = new HW_Data(65, 96, 0);
+        healthData = new HW_Data(0, 0, 0);
 
         // Create a method to set up your LineChart and populate it with data
         setupLineChart(lineChart);
