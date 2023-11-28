@@ -1,3 +1,5 @@
+//Class to store user personal infromation
+
 package com.example.oxyrhythm;
 
 public class OxyUser {
