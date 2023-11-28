@@ -359,7 +359,7 @@ public class Dashboard extends AppCompatActivity {
             logo.setVisibility(View.INVISIBLE);
             toolbar.setVisibility(View.GONE);
 
-            Intent i = new Intent(this, RegisterUserActivity.class);
+            Intent i = new Intent(this, GetStartedActivity.class);
             startActivity(i);
         } else {
             greeting_oxy_user.setText("Hello, " + oxy_user.getFirstName() + "!");
