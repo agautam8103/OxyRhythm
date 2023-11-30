@@ -14,15 +14,15 @@ public class HeartrateDialogFragment extends AppCompatDialogFragment {
 
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.RoundedDialog);
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.heartrateinfor,null);
+        View view = inflater.inflate(R.layout.heartrateinfor, null);
 
         builder.setView(view).setTitle("Heart Rate").setPositiveButton("ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                // Your positive button click logic here
             }
         });
         return builder.create();

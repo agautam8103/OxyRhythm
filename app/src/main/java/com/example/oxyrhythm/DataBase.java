@@ -60,17 +60,17 @@ public class DataBase {
         editor.putFloat("Height", height);
         editor.apply();
     }
-    
+
     public OxyUser getSavedOxyUser() {
         saved_oxy_user.SetAttributes(data_saver.getString("First_Name", null),
-                                 data_saver.getString("Last_Name", null),
-                                 data_saver.getString("Sex", "Male"),
-                                 data_saver.getFloat("Height", 0),
-                                 data_saver.getFloat("Weight", 0),
-                                 data_saver.getInt("Birth_Year", 0),
-                                 data_saver.getString("Height_Unit", "cm"),
-                                 data_saver.getString("Weight_Unit", "kg"));
-        
+                data_saver.getString("Last_Name", null),
+                data_saver.getString("Sex", "Male"),
+                data_saver.getFloat("Height", 0),
+                data_saver.getFloat("Weight", 0),
+                data_saver.getInt("Birth_Year", 0),
+                data_saver.getString("Height_Unit", "cm"),
+                data_saver.getString("Weight_Unit", "kg"));
+
         return saved_oxy_user;
     }
 }

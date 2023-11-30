@@ -78,6 +78,7 @@ public class Dashboard extends AppCompatActivity {
                     @Override
                     public void run() {
                         Toast.makeText(Dashboard.this, "Disconnected from Arduino", Toast.LENGTH_SHORT).show();
+
                     }
                 });
 
@@ -275,6 +276,7 @@ public class Dashboard extends AppCompatActivity {
         livedatabody = findViewById(R.id.livedatabody);
 
 
+
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             BluetoothManager bluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
             bluetoothAdapter = bluetoothManager.getAdapter();
@@ -282,7 +284,7 @@ public class Dashboard extends AppCompatActivity {
             if (bluetoothAdapter == null) {
                 Toast.makeText(this, "Bluetooth not supported on this device", Toast.LENGTH_LONG).show();
             } else {
-                BluetoothDevice arduinoDevice = bluetoothAdapter.getRemoteDevice("F9:B9:F4:20:0C:55");
+                BluetoothDevice arduinoDevice = bluetoothAdapter.getRemoteDevice("55:19:13:45:C6:86");
                 bluetoothGatt = arduinoDevice.connectGatt(this, false, gattCallback);
             }
         } else {
@@ -362,6 +364,8 @@ public class Dashboard extends AppCompatActivity {
             logo.setVisibility(View.VISIBLE);
             toolbar.setVisibility(View.VISIBLE);
         }
+
+
     }
 
     @Override

@@ -18,10 +18,10 @@ class HW_Database_SQLite extends SQLiteOpenHelper {
 
     private static final String TABLE_NAME = "hw_data";
     private static final String COLUMN_ID = "_id";
-     static final String COLUMN_HEART_RATE = "heart_rate";
-     static final String COLUMN_BLOOD_OXYGEN = "blood_oxygen";
-     static final String COLUMN_TEMPERATURE = "temperature";
-     static final String COLUMN_TIMESTAMP = "timestamp";
+    static final String COLUMN_HEART_RATE = "heart_rate";
+    static final String COLUMN_BLOOD_OXYGEN = "blood_oxygen";
+    static final String COLUMN_TEMPERATURE = "temperature";
+    static final String COLUMN_TIMESTAMP = "timestamp";
 
 
     HW_Database_SQLite(@Nullable Context context) {
