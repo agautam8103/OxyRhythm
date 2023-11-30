@@ -96,6 +96,16 @@ public class HeartRate extends Dashboard {
 
             // Calculate average BPM
             int averageBPM = (entryCount >= 0) ? totalHeartRate / entryCount : 0;
+            String healthStatus;
+            if (averageBPM < 60) {
+                healthStatus = "Below Normal Range";
+            } else if (averageBPM >= 60 && averageBPM < 100) {
+                healthStatus = "Normal";
+            } else {
+                healthStatus = "Elevated";
+            }
+            // Update TextView with health status
+            hearthealthstatus.setText(healthStatus);
 
             // Update the LineChart with the entries
             updateLineChart(entries);
@@ -227,21 +237,11 @@ public class HeartRate extends Dashboard {
         int averageBPM = healthData.getAverageBPM();
 
         // Update TextView
-        hearthealthstatus.setText("Current Heart Rate: " + currentHeartRate + " BPM\n"
-                + "Average BPM: " + averageBPM + " BPM");
+//        hearthealthstatus.setText("Current Heart Rate: " + currentHeartRate + " BPM\n"
+//                + "Average BPM: " + averageBPM + " BPM");
 
         // Determine health status based on heart rate values
-        String healthStatus;
-        if (currentHeartRate < 60) {
-            healthStatus = "Below Normal Range";
-        } else if (currentHeartRate >= 60 && currentHeartRate < 100) {
-            healthStatus = "Normal";
-        } else {
-            healthStatus = "Elevated";
-        }
 
-        // Update TextView with health status
-        hearthealthstatus.setText(healthStatus);
     }
 
 

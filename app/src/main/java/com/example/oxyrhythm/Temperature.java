@@ -80,7 +80,7 @@ public class Temperature extends Dashboard {
                 entryCount++;
             } while (cursor.moveToPrevious() && entries.size() < 5); // Limit to 5 entries
 
-            // Calculate average BPM
+            // Calculate average temp
             int averageTemp = (entryCount >= 0) ? totalTemp / entryCount : 0;
 
             // Update the LineChart with the entries
