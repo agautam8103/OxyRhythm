@@ -118,6 +118,25 @@ public class RegisterUserActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        OxyUser user = save_oxy_user.getSavedOxyUser();
+
+        if (user.OxyUserIsEmpty()) EnableEdit(true);
+
+        else {
+            EnableEdit(false);
+
+            first_name.setText(user.getFirstName());
+            last_name.setText(user.getLastName());
+            birth_year.setText(Integer.toString(user.getBirthYear()));
+            height.setText(Float.toString(user.getHeight()));
+            weight.setText(Float.toString(user.getWeight()));
+        }
+    }
+
     private void checkAndRequestPermissions() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissionsIfNotGranted(REQUIRED_PERMISSIONS, PERMISSION_REQUEST_CODE);
