@@ -18,10 +18,10 @@ class HW_Database_SQLite extends SQLiteOpenHelper {
 
     private static final String TABLE_NAME = "hw_data";
     private static final String COLUMN_ID = "_id";
-     static final String COLUMN_HEART_RATE = "heart_rate";
-     static final String COLUMN_BLOOD_OXYGEN = "blood_oxygen";
-     static final String COLUMN_TEMPERATURE = "temperature";
-     static final String COLUMN_TIMESTAMP = "timestamp";
+    static final String COLUMN_HEART_RATE = "heart_rate";
+    static final String COLUMN_BLOOD_OXYGEN = "blood_oxygen";
+    static final String COLUMN_TEMPERATURE = "temperature";
+    static final String COLUMN_TIMESTAMP = "timestamp";
 
 
     HW_Database_SQLite(@Nullable Context context) {
@@ -60,10 +60,10 @@ class HW_Database_SQLite extends SQLiteOpenHelper {
         long result = db.insert(TABLE_NAME, null, cv);
 
         if (result == -1) {
-            Toast.makeText(context, "Failed to insert data", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Failed to insert data", Toast.LENGTH_SHORT).show();
             Log.e("HW_Database_SQLite", "Failed to insert data");
         } else {
-            Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
             Log.d("HW_Database_SQLite", "Data inserted successfully");
         }
 

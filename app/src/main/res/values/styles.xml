@@ -7,4 +7,8 @@
         <item name="android:textColor">#fff</item>
         <item name="android:layout_marginLeft">15dp</item>
     </style>
+    <!-- res/values/styles.xml -->
+    <style name="RoundedDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/rounded_dialog_bg</item>
+    </style>
 </resources>
