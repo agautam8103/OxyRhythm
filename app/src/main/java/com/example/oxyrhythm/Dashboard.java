@@ -284,7 +284,7 @@ public class Dashboard extends AppCompatActivity {
             if (bluetoothAdapter == null) {
                 Toast.makeText(this, "Bluetooth not supported on this device", Toast.LENGTH_LONG).show();
             } else {
-                BluetoothDevice arduinoDevice = bluetoothAdapter.getRemoteDevice("55:19:13:45:C6:86");
+                BluetoothDevice arduinoDevice = bluetoothAdapter.getRemoteDevice("55:19:13:45:C6:86"); //"F9:B9:F4:20:0C:55"
                 bluetoothGatt = arduinoDevice.connectGatt(this, false, gattCallback);
             }
         } else {

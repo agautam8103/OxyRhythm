@@ -85,7 +85,7 @@ public class BloodOxygenLevel extends Dashboard {
             String healthStatus;
             int currentSpO2 = healthData.getBloodOxygen();
 
-            if (currentSpO2 < 90) {
+            if (averageSpo2  < 90) {
                 healthStatus = "Low";
             }
             else  {
